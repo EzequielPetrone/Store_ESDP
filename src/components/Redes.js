@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fab)
 
-const Firma = () => {
+const Redes = () => {
     return (
         <div className="div-redes bg-black w-full flex justify-center p-2 sm:p-3">
             <a href="https://open.spotify.com/artist/6JKZLnwyVPZAWV2EEf4ymg" target="_blank" rel="noopener noreferrer"
@@ -32,4 +32,4 @@ const Firma = () => {
     )
 }
 
-export default Firma
+export default Redes

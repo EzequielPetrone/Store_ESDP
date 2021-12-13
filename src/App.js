@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import Cuerpo from './components/Cuerpo';
-import Firma from './components/Firma';
+import Redes from './components/Redes';
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         <Cuerpo/>
       </main>
       <footer className='w-full'>
-        <Firma/>
+        <Redes/>
       </footer>
     </>
   )
