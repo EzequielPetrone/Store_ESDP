@@ -2,8 +2,10 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-import CartWidget from './CartWidget'
 import logo from '../images/logo.webp';
+import CartWidget from './CartWidget';
+
+// const CartWidget = ShoppingCartIcon;
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -67,12 +69,7 @@ export default function NavBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <CartWidget className="h-10 sm:h-12 w-auto p-1" />
-                </button>
+                <CartWidget/>
               </div>
             </div>
           </div>

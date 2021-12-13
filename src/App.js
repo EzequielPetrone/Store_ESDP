@@ -1,6 +1,8 @@
 import './App.css';
+
 import NavBar from './components/NavBar';
-import Cuerpo from './components/Cuerpo';
+import Branding from './components/Branding';
+import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 
 export default function App() {
@@ -9,8 +11,9 @@ export default function App() {
       <header className='w-full'>
         <NavBar/>  
       </header>
-      <main>
-        <Cuerpo/>
+      <main className='w-full sm:w-10/12 lg:w-8/12 flex-auto'>
+        <Branding/>
+        <ItemListContainer/>
       </main>
       <footer className='w-full'>
         <Redes/>
