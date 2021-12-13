@@ -1,10 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import Cuerpo from './components/Cuerpo';
+import Firma from './components/Firma';
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-green-500">
-      Hello world!
-    </h1>
+    <>
+      <header className='w-full'>
+        <NavBar/>  
+      </header>
+      <main>
+        <Cuerpo/>
+      </main>
+      <footer className='w-full'>
+        <Firma/>
+      </footer>
+    </>
   )
 }

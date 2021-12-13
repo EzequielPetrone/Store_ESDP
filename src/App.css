@@ -1,38 +1,28 @@
-.App {
-  text-align: center;
+/* COLORES */
+
+.text-color-1{
+  color: #972e34;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* estilos footer - Firma */
+
+.div-redes a svg {
+  padding: 0.75rem;
+  color: #f3be4f;
+  font-size: 3.5rem;
+  transition: all 0.5s;
+  transition-timing-function: ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 767.999px) {
+  .div-redes a svg {
+    font-size: 2.75rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.div-redes a svg:hover {
+  color: #c94955;
+  transform: scale(1.25);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Finaliza estilos footer - Firma*/
