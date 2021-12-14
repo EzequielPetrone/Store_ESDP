@@ -5,6 +5,12 @@ import Branding from './components/Branding';
 import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 
+const productos = [
+  { id:1, greeting: 'Hola, soy el producto 1' },
+  { id:2, greeting: 'Hola, soy el producto 2' },
+  { id:3, greeting: 'Hola, soy el producto 3' }
+]
+
 export default function App() {
   return (
     <>
@@ -13,7 +19,7 @@ export default function App() {
       </header>
       <main className='w-full sm:w-10/12 lg:w-8/12 flex-auto'>
         <Branding/>
-        <ItemListContainer/>
+        <ItemListContainer arrayProd={productos}/>
       </main>
       <footer className='w-full'>
         <Redes/>
