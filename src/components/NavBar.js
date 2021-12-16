@@ -1,11 +1,7 @@
-
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
 import logo from '../images/logo.webp';
 import CartWidget from './CartWidget';
-
-// const CartWidget = ShoppingCartIcon;
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -18,7 +14,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-// export default function Example() {
 export default function NavBar({cartCounter}) {
   return (
     <Disclosure as="nav" className="bg-black">

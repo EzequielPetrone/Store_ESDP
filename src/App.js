@@ -1,19 +1,17 @@
 import './App.css';
-
 import { useState } from 'react';
-
 import NavBar from './components/NavBar';
 import Branding from './components/Branding';
 import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 
-export default function App() {
+const productos = [
+  { id: 1, descripcion: 'Soy el producto 1', stock: 5 },
+  { id: 2, descripcion: 'Soy el producto 2', stock: 15 },
+  { id: 3, descripcion: 'Soy el producto 3', stock: 10 }
+]
 
-  const productos = [
-    { id: 1, descripcion: 'Soy el producto 1', stock: 5 },
-    { id: 2, descripcion: 'Soy el producto 2', stock: 15 },
-    { id: 3, descripcion: 'Soy el producto 3', stock: 10 }
-  ]
+export default function App() {
 
   const [counter, setCounter] = useState(0)
  
