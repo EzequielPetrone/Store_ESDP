@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ItemList = ({descripcion, stock, sumCounter, resCounter}) => {
+const ItemList = ({descripcion, stock, updateCounter}) => {
 
     const [stockItem, setStockItem] = useState(stock)
     const [minusBtnDisabled, setMinusBtnDisabled] = useState(null)
@@ -9,20 +9,18 @@ const ItemList = ({descripcion, stock, sumCounter, resCounter}) => {
     useEffect(() => {
         setMinusBtnDisabled(stockItem >= stock ? true : false)
         setPlusBtnDisabled(stockItem <= 0 ? true : false)
-    }, [stockItem])
+    }, [stockItem, stock])
 
     const minusBtn = () => {
-        
         if (stockItem<stock) {
-            resCounter()
+            updateCounter(-1)
             setStockItem(stockItem + 1)
         }
     }
     
     const plusBtn = () => {
-        
         if (stockItem>0) {
-            sumCounter()
+            updateCounter(1)
             setStockItem(stockItem - 1)
         }
     }
@@ -37,7 +35,7 @@ const ItemList = ({descripcion, stock, sumCounter, resCounter}) => {
                     disabled={minusBtnDisabled} onClick={minusBtn}>
                     - 
                 </button>
-                <div>Stock inicial: {stock} <br/> Stock actual: {stockItem}</div>
+                <div className='text-sm'>Stock inicial: {stock} <br/> Stock actual: {stockItem}</div>
                 <button className="disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:hover:text-color-1 disabled:hover:border-color-1 bg-transparent hover:bg-color-1 text-color-1 font-semibold hover:text-white w-9 h-9 border border-color-1 hover:border-transparent rounded-lg"
                     disabled={plusBtnDisabled} onClick={plusBtn}>
                     + 
@@ -47,15 +45,14 @@ const ItemList = ({descripcion, stock, sumCounter, resCounter}) => {
     )
 }
 
-const ItemListContainer = ({arrayProd, sumCounter , resCounter}) => {
+const ItemListContainer = ({arrayProd, updateCounter}) => {
     return (
         <>
             <div className="flex flex-col xl:flex-row items-center justify-center gap-y-6 p-6 gap-x-8">
                 {arrayProd.map(p => {
                     return (
                         <ItemList key={p.id} descripcion={p.descripcion}
-                            stock={p.stock} sumCounter={sumCounter} resCounter={resCounter}
-                        />
+                            stock={p.stock} updateCounter={updateCounter} />
                     )
                 })}
             </div>
