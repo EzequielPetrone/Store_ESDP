@@ -6,7 +6,7 @@ library.add(fab)
 const ItemRedes = ({href, value}) => {
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" aria-label={value}>
-            <FontAwesomeIcon icon={['fab', value]} />
+            <FontAwesomeIcon icon={['fab', value]}/>
         </a>
     )
 }
@@ -22,7 +22,7 @@ const arrayRedes = [
 const Redes = () => {
     return (
         <div className="div-redes bg-black w-full flex justify-center p-2 sm:p-3">
-            {arrayRedes.map( r => {
+            {arrayRedes.map(r => {
                 return <ItemRedes key={r.id} href={r.url} value={r.red}/>
             })}
         </div>

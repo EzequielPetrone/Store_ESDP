@@ -35,7 +35,9 @@ const ItemList = ({descripcion, stock, updateCounter}) => {
                     disabled={minusBtnDisabled} onClick={minusBtn}>
                     - 
                 </button>
-                <div className='text-sm'>Stock inicial: {stock} <br/> Stock actual: {stockItem}</div>
+                <div className='text-sm'>
+                    Stock inicial: {stock} <br/> Stock actual: {stockItem}
+                </div>
                 <button className="disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:hover:text-color-1 disabled:hover:border-color-1 bg-transparent hover:bg-color-1 text-color-1 font-semibold hover:text-white w-9 h-9 border border-color-1 hover:border-transparent rounded-lg"
                     disabled={plusBtnDisabled} onClick={plusBtn}>
                     + 
@@ -51,8 +53,7 @@ const ItemListContainer = ({arrayProd, updateCounter}) => {
             <div className="flex flex-col xl:flex-row items-center justify-center gap-y-6 p-6 gap-x-8">
                 {arrayProd.map(p => {
                     return (
-                        <ItemList key={p.id} descripcion={p.descripcion}
-                            stock={p.stock} updateCounter={updateCounter} />
+                        <ItemList key={p.id} descripcion={p.descripcion} stock={p.stock} updateCounter={updateCounter}/>
                     )
                 })}
             </div>
