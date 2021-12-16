@@ -19,7 +19,7 @@ function classNames(...classes) {
 }
 
 // export default function Example() {
-export default function NavBar() {
+export default function NavBar({cartCounter}) {
   return (
     <Disclosure as="nav" className="bg-black">
       {({ open }) => (
@@ -40,17 +40,12 @@ export default function NavBar() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-12 w-auto rounded-full"
-                    src={logo}
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-16 w-auto rounded-full"
+                    className="block h-12 md:h-16 w-auto rounded-full"
                     src={logo}
                     alt="Workflow"
                   />
                 </div>
-                <div className="hidden sm:flex items-center sm:ml-6">
+                <div className="hidden sm:flex items-center sm:ml-6 sm:pl-4">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -69,7 +64,7 @@ export default function NavBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <CartWidget/>
+                <CartWidget cartCounter={cartCounter}/>
               </div>
             </div>
           </div>

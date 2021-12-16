@@ -1,25 +1,37 @@
 import './App.css';
 
+import { useState } from 'react';
+
 import NavBar from './components/NavBar';
 import Branding from './components/Branding';
 import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 
-const productos = [
-  { id:1, greeting: 'Hola, soy el producto 1' },
-  { id:2, greeting: 'Hola, soy el producto 2' },
-  { id:3, greeting: 'Hola, soy el producto 3' }
-]
-
 export default function App() {
+
+  const productos = [
+    { id: 1, descripcion: 'Soy el producto 1', stock: 5 },
+    { id: 2, descripcion: 'Soy el producto 2', stock: 15 },
+    { id: 3, descripcion: 'Soy el producto 3', stock: 10 }
+  ]
+
+  const [counter, setCounter] = useState(0)
+ 
   return (
     <>
       <header className='w-full'>
-        <NavBar/>  
+        <NavBar cartCounter={counter}/>  
       </header>
       <main className='w-full sm:w-10/12 lg:w-8/12 flex-auto'>
-        <Branding/>
-        <ItemListContainer arrayProd={productos}/>
+        <section className="my-4">
+          <Branding/>
+        </section>
+        <section className="my-4">
+          <ItemListContainer arrayProd={productos} 
+            sumCounter={()=>setCounter(counter + 1)} 
+            resCounter={()=>setCounter(counter <= 0 ? 0 : counter - 1)}
+          />
+        </section>
       </main>
       <footer className='w-full'>
         <Redes/>
