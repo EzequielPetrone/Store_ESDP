@@ -26,8 +26,7 @@ export default function App() {
         </section>
         <section className="my-4">
           <ItemListContainer arrayProd={productos} 
-            sumCounter={()=>setCounter(counter + 1)} 
-            resCounter={()=>setCounter(counter <= 0 ? 0 : counter - 1)}
+            updateCounter={(n)=>setCounter(Math.max(counter + n, 0))}
           />
         </section>
       </main>
