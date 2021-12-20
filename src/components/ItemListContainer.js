@@ -51,11 +51,9 @@ const ItemListContainer = ({arrayProd, updateCounter}) => {
     return (
         <>
             <div className="flex flex-col xl:flex-row items-center justify-center gap-y-6 p-6 gap-x-8">
-                {arrayProd.map(p => {
-                    return (
-                        <ItemList key={p.id} descripcion={p.descripcion} stock={p.stock} updateCounter={updateCounter}/>
-                    )
-                })}
+                {arrayProd.map(p => 
+                    <ItemList key={p.id} descripcion={p.descripcion} stock={p.stock} updateCounter={updateCounter}/>
+                )}
             </div>
         </>
     )
