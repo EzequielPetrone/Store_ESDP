@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import NavBar from './components/NavBar';
 import Branding from './components/Branding';
-import ItemListContainer from './components/ItemListContainer';
+import ItemList from './components/ItemList';
 import Redes from './components/Redes';
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
           <Branding/>
         </section>
         <section className="my-4">
-          <ItemListContainer updateCounter={(n)=>setCounter(Math.max(counter + n, 0))}/>
+          <ItemList updateCounter={(n)=>setCounter(Math.max(counter + n, 0))}/>
         </section>
       </main>
       <footer className='w-full'>
