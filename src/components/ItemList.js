@@ -7,9 +7,8 @@ const ItemList = ({updateCounter}) => {
     const [productos, setProductos] = useState([])
 
     useEffect(() => {
-        getProductos.then((res)=>{
-            setProductos(res)
-        })
+        const obtengoProductos = async () => setProductos(await getProductos());
+        obtengoProductos();
     }, [])
 
     return (

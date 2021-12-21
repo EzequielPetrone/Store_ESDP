@@ -1,5 +1,5 @@
   
-const getProductos = new Promise((resolve) => {
+const getProductos = () => {
 
   const productos = [
     { id: 1, descripcion: 'Soy el producto 1', stock: 5 },
@@ -7,9 +7,11 @@ const getProductos = new Promise((resolve) => {
     { id: 3, descripcion: 'Soy el producto 3', stock: 10 }
   ]
 
-  setTimeout(() => {
-    resolve(productos)
-  }, 2000);
-})
+  return new Promise((resolve) => {
+      setTimeout(() => {
+      resolve(productos)
+    }, 2500);
+  })
+}
 
 export default getProductos;
