@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const Item = ({descripcion, stock, precio, imgUrl, updateCounter}) => {
+const Item = ({prod, updateCounter}) => {
+
+    const {descripcion, stock, precio, imgUrl} = prod;
 
     const [stockItem, setStockItem] = useState(stock)
     const [minusBtnDisabled, setMinusBtnDisabled] = useState(null)
