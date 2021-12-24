@@ -33,7 +33,7 @@ const Item = ({prod, updateCounter}) => {
                 {descripcion}
             </div>
             <div className="flex justify-center h-56">
-                <img  className="h-full rounded-lg" src={imgUrl}/>
+                <img  className="h-full rounded-lg" src={imgUrl} alt={descripcion}/>
             </div>
             <div className=" text-lg pt-2">
                 $ {precio}
