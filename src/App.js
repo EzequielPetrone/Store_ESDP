@@ -1,5 +1,13 @@
 import './App.css';
 import { useState } from 'react';
+
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  // Link
+} from "react-router-dom";
+
 import NavBar from './components/NavBar';
 import Branding from './components/Branding';
 import Redes from './components/Redes';
@@ -10,7 +18,7 @@ export default function App() {
   const [counter, setCounter] = useState(0)
  
   return (
-    <>
+    <BrowserRouter>
       <header className='w-full'>
         <NavBar cartCounter={counter}/>  
       </header>
@@ -25,6 +33,6 @@ export default function App() {
       <footer className='w-full'>
         <Redes/>
       </footer>
-    </>
+    </BrowserRouter>
   )
 }
