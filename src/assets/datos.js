@@ -68,4 +68,26 @@ const getQtyTotal = () => {
   }
 }
 
-export {getProductos, getProdbyId, getQtyById, setQtyById, getQtyTotal }
+const getCartArray = () => {
+  let cartArray = []
+  let arrayProd = JSON.parse(localStorage.getItem(KEYSTORAGE))
+  if (arrayProd) {
+    for (const p of arrayProd) {
+      let e = productos.find(x => x.id === p.id)
+      cartArray.push({id: p.id, descripcion: e.descripcion, precio: e.precio, imgUrl: e.imgUrl, qty: p.qty})
+    }
+  } 
+  return cartArray
+}
+
+const deleteItembyId = (id) => {
+  let newArray=[]
+  let arrayProd = JSON.parse(localStorage.getItem(KEYSTORAGE)) 
+  if (arrayProd) {
+    newArray = arrayProd.filter(e => e.id!==id)
+  } 
+  localStorage.setItem(KEYSTORAGE, JSON.stringify(newArray))
+  
+}
+
+export {getProductos, getProdbyId, getQtyById, setQtyById, getQtyTotal, getCartArray, deleteItembyId }
