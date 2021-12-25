@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({prod, updateCounter}) => {
 
-    const {descripcion, stock, precio, imgUrl} = prod;
+    const {id, descripcion, stock, precio, imgUrl} = prod;
 
     const [stockItem, setStockItem] = useState(stock)
     const [minusBtnDisabled, setMinusBtnDisabled] = useState(null)
     const [plusBtnDisabled, setPlusBtnDisabled] = useState(null)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setMinusBtnDisabled(stockItem >= stock ? true : false)
@@ -33,7 +36,9 @@ const Item = ({prod, updateCounter}) => {
                 {descripcion}
             </div>
             <div className="flex justify-center h-56">
-                <img  className="h-full rounded-lg" src={imgUrl} alt={descripcion}/>
+                <img className="h-full rounded-lg" src={imgUrl} alt={descripcion}
+                    onClick={()=>navigate('/producto/'+ id)}
+                />
             </div>
             <div className=" text-lg pt-2">
                 $ {precio}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getProductos from "../assets/datos"
+import {getProductos} from "../assets/datos"
 import Item from "./Item"
 
 const ItemList = ({updateCounter, hideSpinner}) => {
