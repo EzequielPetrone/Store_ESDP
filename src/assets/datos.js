@@ -26,4 +26,46 @@ const getProdbyId = (idprod) => {
   return productos.find(p => p.id===idprod)
 }
 
-export {getProductos , getProdbyId}
+const KEYSTORAGE = 'PRODUCTOSADDED'
+
+const getQtyById = (id) => {
+  let arrayProd = JSON.parse(localStorage.getItem(KEYSTORAGE)) 
+  if (arrayProd) {
+    let elemento = arrayProd.find(e => e.id===id)
+    return elemento ? elemento.qty : 0
+  } else {
+    return 0
+  }
+}
+
+const setQtyById = (id, cant) => {
+  let arrayProd = JSON.parse(localStorage.getItem(KEYSTORAGE)) 
+  if (arrayProd) {
+    let i = arrayProd.findIndex(e => e.id===id)
+    if(i>=0){
+      arrayProd[i].qty = cant;
+    } else {
+      arrayProd.push({id: id, qty: cant})
+    }
+  } else {
+    arrayProd=[]
+    arrayProd.push({id: id, qty: cant})
+  }
+  console.log(arrayProd);
+  localStorage.setItem(KEYSTORAGE, JSON.stringify(arrayProd))
+}
+
+const getQtyTotal = () => {
+  let arrayProd = JSON.parse(localStorage.getItem(KEYSTORAGE)) 
+  if (arrayProd) {
+    let suma = 0
+    for (const p of arrayProd) {
+      suma += p.qty
+    }
+    return suma
+  } else {
+    return 0
+  }
+}
+
+export {getProductos, getProdbyId, getQtyById, setQtyById, getQtyTotal }

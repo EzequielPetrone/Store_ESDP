@@ -1,34 +1,10 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Item = ({prod, updateCounter}) => {
+const Item = ({prod}) => {
 
-    const {id, descripcion, stock, precio, imgUrl} = prod;
-
-    const [stockItem, setStockItem] = useState(stock)
-    const [minusBtnDisabled, setMinusBtnDisabled] = useState(null)
-    const [plusBtnDisabled, setPlusBtnDisabled] = useState(null)
+    const {id, descripcion, precio, imgUrl} = prod;
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setMinusBtnDisabled(stockItem >= stock ? true : false)
-        setPlusBtnDisabled(stockItem <= 0 ? true : false)
-    }, [stockItem, stock])
-
-    const minusBtn = () => {
-        if (stockItem<stock) {
-            updateCounter(-1)
-            setStockItem(stockItem + 1)
-        }
-    }
-    
-    const plusBtn = () => {
-        if (stockItem>0) {
-            updateCounter(1)
-            setStockItem(stockItem - 1)
-        }
-    }
 
     return (
         <div className=" w-64 border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl">
@@ -42,19 +18,6 @@ const Item = ({prod, updateCounter}) => {
             </div>
             <div className=" text-lg pt-2">
                 $ {precio}
-            </div>
-            <div className="flex justify-between items-center mt-2">
-                <button className="disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:hover:text-color-1 disabled:hover:border-color-1 bg-transparent hover:bg-color-1 text-color-1 font-semibold hover:text-white w-9 h-9 border border-color-1 hover:border-transparent rounded-lg"
-                    disabled={minusBtnDisabled} onClick={minusBtn}>
-                    - 
-                </button>
-                <div className='text-sm'>
-                    Stock inicial: {stock} <br/> Stock actual: {stockItem}
-                </div>
-                <button className="disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:hover:text-color-1 disabled:hover:border-color-1 bg-transparent hover:bg-color-1 text-color-1 font-semibold hover:text-white w-9 h-9 border border-color-1 hover:border-transparent rounded-lg"
-                    disabled={plusBtnDisabled} onClick={plusBtn}>
-                    + 
-                </button>
             </div>
         </div>
     )
