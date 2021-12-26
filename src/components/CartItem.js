@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { deleteItembyId} from '../assets/datos';
+import { deleteItembyId } from '../assets/datos';
 
-const CartItem = ({updateCart, item}) => {
+const CartItem = ({ updateCart, item }) => {
     const navigate = useNavigate();
-    const {id, descripcion, precio, imgUrl, qty} = item
+    const { id, descripcion, precio, imgUrl, qty } = item
 
     const deleteItem = () => {
         deleteItembyId(id)
@@ -17,7 +17,7 @@ const CartItem = ({updateCart, item}) => {
             </div>
             <div className="flex justify-center h-20">
                 <img className="h-full rounded-lg" src={imgUrl} alt={descripcion}
-                    onClick={()=>navigate('/producto/'+ id)}
+                    onClick={() => navigate('/producto/' + id)}
                 />
             </div>
             <div className=" text-lg pt-2">
@@ -27,7 +27,7 @@ const CartItem = ({updateCart, item}) => {
                 QTY {qty}
             </div>
             <div className=" text-lg pt-2">
-                TOT $ {precio*qty}
+                TOT $ {precio * qty}
             </div>
             <button onClick={deleteItem}>ELIMINAR</button>
         </div>

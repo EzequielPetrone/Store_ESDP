@@ -1,39 +1,41 @@
-import { getCartArray,getQtyTotal } from '../assets/datos';
-import CartItem from './CartItem'
-import { useState , useEffect} from 'react'
+import { getCartArray, getQtyTotal } from "../assets/datos";
+import CartItem from "./CartItem";
+import { useState, useEffect } from "react";
 
-const Cart = ({updateCounter}) => {
-    const [cartLista, setCartLista] = useState([])
-    const [monto, setMonto] = useState(0)
+const Cart = ({ updateCounter }) => {
+    const [cartLista, setCartLista] = useState([]);
+    const [monto, setMonto] = useState(0);
+
+    useEffect(() => {
+        const getMonto = () => {
+            let suma = 0;
+            for (const i of cartLista) {
+                suma += i.qty * i.precio;
+            }
+            return suma;
+        };
+        setMonto(getMonto());
+    }, [cartLista]);
 
     const updateCart = () => {
-        setCartLista(getCartArray())
-        updateCounter(getQtyTotal())
-    }
-
-    const getMonto = () => {
-        let suma = 0
-        for (const i of cartLista) {
-            suma += (i.qty * i.precio)
-        }
-        return suma
-    }
+        setCartLista(getCartArray());
+        updateCounter(getQtyTotal());
+    };
 
     useEffect(() => {
-        setMonto(getMonto())
-    }, [cartLista])
-
-    useEffect(() => {
-        updateCart()
-    }, [])
+        setCartLista(getCartArray());
+        updateCounter(getQtyTotal());
+    }, [updateCounter]);
 
     return (
         <div>
-           <h1>Carrito</h1> 
-           {cartLista.map(e => <CartItem key={e.id} item={e} updateCart={updateCart}/>)}
-           <h2>Monto Total: $ {monto}</h2>
+            <h1> Carrito </h1>
+            {cartLista.map((e) => (
+                <CartItem key={e.id} item={e} updateCart={updateCart} />
+            ))}
+            <h2> Monto Total: $ {monto} </h2>
         </div>
-    )
-}
+    );
+};
 
-export default Cart
+export default Cart;

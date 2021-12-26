@@ -1,6 +1,6 @@
 import { ShoppingCartIcon } from '@heroicons/react/outline'
 
-const CartWidget = ({cartCounter}) => {
+const CartWidget = ({ cartCounter }) => {
     return (
         <button type="button"
             className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 
