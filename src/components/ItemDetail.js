@@ -1,7 +1,10 @@
 import { getQtyById, setQtyById, getQtyTotal } from "../assets/datos";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({ prod, updateCounter }) => {
+    const navigate = useNavigate()
+
     const { id, descripcion, precio, imgUrl, stock } = prod;
     const [minusBtnDisabled, setMinusBtnDisabled] = useState(null);
     const [plusBtnDisabled, setPlusBtnDisabled] = useState(null);
@@ -74,6 +77,7 @@ const ItemDetail = ({ prod, updateCounter }) => {
                         Agregar carrito
                     </button>
                 </div>
+                <button onClick={() => navigate(-1)}>BACK</button>
             </div>
         </div>
     );

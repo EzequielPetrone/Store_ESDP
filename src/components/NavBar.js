@@ -1,19 +1,19 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import logo from '../images/logo.webp';
 import CartWidget from './CartWidget';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Shows', href: '#', current: false },
-  { name: 'Discos', href: '#', current: false },
-  { name: 'Store', href: '#', current: false },
+  { name: 'Home', route: '/' },
+  { name: 'Shows', route: 'shop/shows' },
+  { name: 'Discos', route: 'shop/discos' },
+  { name: 'Indumentaria', route: 'shop/indumentaria' },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(' ')
+// }
 
 export default function NavBar({ cartCounter }) {
   return (
@@ -35,26 +35,27 @@ export default function NavBar({ cartCounter }) {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block h-12 md:h-16 w-auto rounded-full"
-                    src={logo}
-                    alt="Workflow"
-                  />
+                  <Link to='/'>
+                    <img
+                      className="block h-12 md:h-16 w-auto rounded-full hover:animate-spin anima"
+                      src={logo}
+                      alt="Workflow"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:flex items-center sm:ml-6 sm:pl-4">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <NavLink
                         key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
+                        to={item.route}
+                        className={({ isActive }) =>
+                          (isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' block px-3 py-2 rounded-md text-base font-medium'
+                        }
+                      // aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
@@ -70,17 +71,17 @@ export default function NavBar({ cartCounter }) {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
+                <Disclosure.Button key={item.name}>
+                  <NavLink
+                    key={item.name}
+                    to={item.route}
+                    className={({ isActive }) =>
+                      (isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' block px-3 py-2 rounded-md text-base font-medium'
+                    }
+                  // aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </NavLink>
                 </Disclosure.Button>
               ))}
             </div>

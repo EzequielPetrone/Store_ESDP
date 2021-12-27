@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
-import { getProductos } from "../assets/datos"
+import { useParams } from "react-router-dom"
+import { getProductos, mapCategory } from "../assets/datos"
 import Item from "./Item"
+import Spinner from './Spinner';
 
 const ItemList = () => {
 
-    // const [productos, setProductos] = useState([])
-
-    const Spinner = () => {
-        return (
-            <div className='flex justify-center items-center p-2 md:p-6 gap-2 md:gap-4'>
-                <div style={{ borderTopColor: 'transparent' }} className="border-color-1 animate-spin w-6 h-6 md:w-10 md:h-10 border-2 md:border-4 rounded-full" role="status"></div>
-                <span className='text-color-1 text-lg md:text-2xl'>Cargando productos...</span>
-            </div>
-        )
-    }
-    const [result, setResult] = useState(<Spinner/>)
-    // const [displayList, setDisplayList] = useState('none')
-
+    const { category } = useParams()
+    const [result, setResult] = useState(null)
+    // const [result, setResult] = useState(<Spinner />)
+    
     useEffect(() => {
+        console.log('test1');
+        setResult(<Spinner />)
         const obtengoProductos = async () => {
-            const productos = await getProductos();
+            console.log('test2');
+            const productos = await getProductos(mapCategory(category));
+            console.log('test3');
             const renderItemList = () => {
+                console.log('test4');
                 if (!productos || productos.length === 0) {
                     return <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>
                 } else {
@@ -34,11 +32,17 @@ const ItemList = () => {
                 }
             }
             setResult(renderItemList())
+            console.log('test5');
         }
         obtengoProductos();
-    }, [])
+        console.log('test6');
+    }, [category])
 
-    return result
+    return (
+        <section className="my-4">
+            {result}
+        </section>
+    )
 }
 
 export default ItemList

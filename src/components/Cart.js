@@ -1,8 +1,10 @@
 import { getCartArray, getQtyTotal } from "../assets/datos";
 import CartItem from "./CartItem";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Cart = ({ updateCounter }) => {
+
     const [cartLista, setCartLista] = useState([]);
     const [monto, setMonto] = useState(0);
 
@@ -28,14 +30,15 @@ const Cart = ({ updateCounter }) => {
     }, [updateCounter]);
 
     return (
-        <div>
+        <section className="my-4">
             <h1> Carrito </h1>
             {cartLista.map((e) => (
                 <CartItem key={e.id} item={e} updateCart={updateCart} />
             ))}
             <h2> Monto Total: $ {monto} </h2>
-        </div>
-    );
+            <button><Link to='/shop/all'>Seguir comprando</Link></button>
+        </section>
+    )
 };
 
 export default Cart;

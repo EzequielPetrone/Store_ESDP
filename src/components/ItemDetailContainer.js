@@ -2,19 +2,12 @@ import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react';
 import { useParams, Navigate } from "react-router-dom"
 import { getProdbyId } from '../assets/datos'
+import Spinner from './Spinner';
 
 const ItemDetailContainer = ({ updateCounter }) => {
 
     const { idprod } = useParams()
 
-    const Spinner = () => {
-        return (
-            <div className='flex justify-center items-center p-2 md:p-6 gap-2 md:gap-4'>
-                <div style={{ borderTopColor: 'transparent' }} className="border-color-1 animate-spin w-6 h-6 md:w-10 md:h-10 border-2 md:border-4 rounded-full" role="status"></div>
-                <span className='text-color-1 text-lg md:text-2xl'>Buscando producto...</span>
-            </div>
-        )
-    }
     const [result, setResult] = useState(<Spinner/>)
 
     useEffect(() => {
@@ -25,7 +18,11 @@ const ItemDetailContainer = ({ updateCounter }) => {
         obtengoProd()
     }, [idprod, updateCounter])
 
-    return result
+    return (
+        <section className="my-4">
+            {result}
+        </section>
+    )
 }
 
 export default ItemDetailContainer
