@@ -30,13 +30,22 @@ const Cart = ({ updateCounter }) => {
     }, [updateCounter]);
 
     return (
-        <section className="my-4">
-            <h1> Carrito </h1>
-            {cartLista.map((e) => (
-                <CartItem key={e.id} item={e} updateCart={updateCart} />
-            ))}
-            <h2> Monto Total: $ {monto} </h2>
-            <button><Link to='/shop/all'>Seguir comprando</Link></button>
+        <section className="m-2 w-full flex flex-col items-center justify-between">
+            <div className="w-full flex flex-col items-center m-2">
+                <h1 className="text-lg"> Tu Carrito </h1>
+                {cartLista.map((e) => (
+                    <CartItem key={e.id} item={e} updateCart={updateCart} />
+                ))}
+                <h2 className=" text-xl m-3"> Monto Total: $ {monto} </h2>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-items-center">
+                <button className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4'>
+                    <Link to='/shop/all'>SEGUIR COMPRANDO</Link>
+                </button>
+                <button className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4'>
+                    <Link to='/cart/checkout'>FINALIZAR COMPRA</Link>
+                </button>
+            </div>
         </section>
     )
 };

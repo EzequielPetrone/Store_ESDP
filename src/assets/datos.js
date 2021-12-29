@@ -9,9 +9,9 @@ const productos = [
   { id: '1', descripcion: 'CD Fragilinvencible', precio: 1200, imgUrl: img1, stock: 5, categoria: 'discos' },
   { id: '2', descripcion: 'CD Pelea al Horror', precio: 1200, imgUrl: img2, stock: 15, categoria: 'discos' },
   { id: '3', descripcion: 'CD Acariciando Fuego', precio: 1200, imgUrl: img3, stock: 10, categoria: 'discos' },
-  { id: '4', descripcion: 'Remera modelo 1', precio: 2200, imgUrl: img4, stock: 5, categoria: 'indumentaria' },
-  { id: '5', descripcion: 'Remera modelo 2', precio: 2200, imgUrl: img5, stock: 15, categoria: 'indumentaria' },
-  { id: '6', descripcion: 'Remera modelo 3', precio: 2200, imgUrl: img6, stock: 10, categoria: 'indumentaria' }
+  { id: '4', descripcion: 'Remera Volviendo', precio: 2200, imgUrl: img4, stock: 5, categoria: 'indumentaria' },
+  { id: '5', descripcion: 'Remera Acariciando', precio: 2200, imgUrl: img5, stock: 15, categoria: 'indumentaria' },
+  { id: '6', descripcion: 'Remera Calavera', precio: 2200, imgUrl: img6, stock: 10, categoria: 'indumentaria' }
 ]
 const mapCategory = (cat) => cat === 'all' ? null : cat
 

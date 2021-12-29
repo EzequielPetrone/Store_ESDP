@@ -4,21 +4,16 @@ import { getProductos, mapCategory } from "../assets/datos"
 import Item from "./Item"
 import Spinner from './Spinner';
 
-const ItemList = () => {
+const ItemListContainer = () => {
 
     const { category } = useParams()
     const [result, setResult] = useState(null)
-    // const [result, setResult] = useState(<Spinner />)
     
     useEffect(() => {
-        console.log('test1');
         setResult(<Spinner />)
         const obtengoProductos = async () => {
-            console.log('test2');
             const productos = await getProductos(mapCategory(category));
-            console.log('test3');
             const renderItemList = () => {
-                console.log('test4');
                 if (!productos || productos.length === 0) {
                     return <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>
                 } else {
@@ -32,17 +27,15 @@ const ItemList = () => {
                 }
             }
             setResult(renderItemList())
-            console.log('test5');
         }
         obtengoProductos();
-        console.log('test6');
     }, [category])
 
     return (
-        <section className="my-4">
+        <section className="my-2 w-full place-self-center flex justify-center">
             {result}
         </section>
     )
 }
 
-export default ItemList
+export default ItemListContainer

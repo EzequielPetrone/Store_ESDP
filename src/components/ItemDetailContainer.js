@@ -19,7 +19,7 @@ const ItemDetailContainer = ({ updateCounter }) => {
     }, [idprod, updateCounter])
 
     return (
-        <section className="my-4">
+        <section className="m-2 w-full place-self-center flex justify-center">
             {result}
         </section>
     )
