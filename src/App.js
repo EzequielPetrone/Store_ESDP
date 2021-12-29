@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <header className='w-full'>
+      <header className='w-full sticky top-0'>
         <NavBar cartCounter={counter} />
       </header>
       <main className='w-full flex flex-auto'>
@@ -30,7 +30,7 @@ export default function App() {
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </main>
-      <footer className='w-full'>
+      <footer className='w-full sticky bottom-0'>
         <Redes />
       </footer>
     </BrowserRouter>
