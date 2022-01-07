@@ -13,7 +13,7 @@ const ItemDetailContainer = ({ updateCounter }) => {
     useEffect(() => {
         const obtengoProd = async () => {
             let prod = await getProdbyId(idprod)
-            setResult(prod ? <ItemDetail prod={prod} updateCounter={updateCounter} /> : <Navigate to='/producto' />)
+            setResult(prod ? <ItemDetail prod={prod} updateCounter={updateCounter} /> : <Navigate to='/shop/all' />)
         }
         obtengoProd()
     }, [idprod, updateCounter])

@@ -13,13 +13,12 @@ const productos = [
   { id: '5', descripcion: 'Remera Acariciando', precio: 2200, imgUrl: img5, stock: 15, categoria: 'indumentaria' },
   { id: '6', descripcion: 'Remera Calavera', precio: 2200, imgUrl: img6, stock: 10, categoria: 'indumentaria' }
 ]
-const mapCategory = (cat) => cat === 'all' ? null : cat
 
-const getProductos = (cat = null) => {
+const getProductos = (cat) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(cat ? productos.filter(p => p.categoria.toLowerCase() === cat.toLowerCase()) : productos)
-    }, 2000);
+      resolve(cat !== null && cat.toLowerCase() !== 'all' ? productos.filter(p => p.categoria.toLowerCase() === cat.toLowerCase()) : productos)
+    }, 1000);
   })
 }
 
@@ -27,7 +26,7 @@ const getProdbyId = (idprod) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(productos ? productos.find(p => p.id === idprod) : null)
-    }, 2000);
+    }, 1000);
   })
 }
 
@@ -80,4 +79,4 @@ const getCartArray = () => {
   return cartArray
 }
 
-export { getProductos, getProdbyId, getQtyById, setQtyById, getQtyTotal, getCartArray, deleteItembyId, mapCategory }
+export { getProductos, getProdbyId, getQtyById, setQtyById, getQtyTotal, getCartArray, deleteItembyId }

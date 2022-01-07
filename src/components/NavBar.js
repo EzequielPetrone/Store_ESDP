@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Shows', route: 'shop/shows' },
   { name: 'Discos', route: 'shop/discos' },
   { name: 'Indumentaria', route: 'shop/indumentaria' },
+  { name: 'ALL', route: 'shop/all' }
 ]
 
 // function classNames(...classes) {
@@ -69,7 +70,7 @@ export default function NavBar({ cartCounter }) {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col flex-wrap content-center">
               {navigation.map((item) => (
                 <Disclosure.Button key={item.name}>
                   <NavLink

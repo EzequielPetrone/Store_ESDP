@@ -7,6 +7,7 @@ const Cart = ({ updateCounter }) => {
 
     const [cartLista, setCartLista] = useState([]);
     const [monto, setMonto] = useState(0);
+    const [checkoutBtnDisabled, setCheckoutBtnDisabled] = useState(null);
 
     useEffect(() => {
         const getMonto = () => {
@@ -17,6 +18,7 @@ const Cart = ({ updateCounter }) => {
             return suma;
         };
         setMonto(getMonto());
+        setCheckoutBtnDisabled(cartLista.length === 0 ? true : false);
     }, [cartLista]);
 
     const updateCart = () => {
@@ -42,8 +44,9 @@ const Cart = ({ updateCounter }) => {
                 <button className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4'>
                     <Link to='/shop/all'>SEGUIR COMPRANDO</Link>
                 </button>
-                <button className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4'>
-                    <Link to='/cart/checkout'>FINALIZAR COMPRA</Link>
+                <button disabled={checkoutBtnDisabled}
+                    className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4 disabled:bg-gray-300'>
+                    <Link to='/cart/checkout' className={checkoutBtnDisabled ? "pointer-events-none" : ''}>FINALIZAR COMPRA</Link>
                 </button>
             </div>
         </section>

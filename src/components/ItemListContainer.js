@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
-import { getProductos, mapCategory } from "../assets/datos"
+import { getProductos } from "../assets/datos"
 import Item from "./Item"
 import Spinner from './Spinner';
 
@@ -8,11 +8,11 @@ const ItemListContainer = () => {
 
     const { category } = useParams()
     const [result, setResult] = useState(null)
-    
+
     useEffect(() => {
         setResult(<Spinner />)
         const obtengoProductos = async () => {
-            const productos = await getProductos(mapCategory(category));
+            const productos = await getProductos(category);
             const renderItemList = () => {
                 if (!productos || productos.length === 0) {
                     return <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>

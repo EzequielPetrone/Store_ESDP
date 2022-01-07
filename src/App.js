@@ -24,6 +24,9 @@ export default function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='shop/:category' element={<ItemListContainer />} />
+          {/* <Route exact path='shop' element={<ItemListContainer />} >
+            <Route exact path=':category' element={<ItemListContainer />} />
+          </Route> */}
           <Route exact path='producto/:idprod' element={<ItemDetailContainer updateCounter={setCounter} />} />
           <Route exact path='cart' element={<Cart updateCounter={setCounter} />} />
           <Route exact path='cart/checkout' element={<Checkout />} />
