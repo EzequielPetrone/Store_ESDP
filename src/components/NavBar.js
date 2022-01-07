@@ -12,10 +12,6 @@ const navigation = [
   { name: 'ALL', route: 'shop/all' }
 ]
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
-
 export default function NavBar({ cartCounter }) {
   return (
     <Disclosure as="nav" className="bg-black">

@@ -1,26 +1,30 @@
-import { getQtyById, setQtyById, getQtyTotal } from "../assets/datos";
+// import { getQtyById, setQtyById } from "../assets/datos";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
+import { useCartContext } from "../context/cartContext";
 
-const ItemDetail = ({ prod, updateCounter }) => {
+
+const ItemDetail = ({ prod }) => {
     const navigate = useNavigate()
-
+    const { addToCart, getQtyById } = useCartContext()
     const { id, descripcion, precio, imgUrl, stock } = prod;
-    const [cartBtnDisabled, setCartBtnDisabled] = useState(null);
+    const [cartBtnDisabled, setCartBtnDisabled] = useState();
     const [qty, setQty] = useState(0);
-    const [qtyAdded, setQtyAdded] = useState(getQtyById(id));
+    const [qtyAdded, setQtyAdded] = useState();
 
-    const addToCart = () => {
-        setQtyAdded(qty + qtyAdded);
-        setQtyById(id, qty + qtyAdded);
+    const itemToCart = () => {
+        addToCart({ ...prod, qty: qty });
         setQty(0);
-        updateCounter(getQtyTotal());
     };
 
     useEffect(() => {
-        setCartBtnDisabled( qty === 0 ? true : false);
+        setCartBtnDisabled(qty === 0 ? true : false);
     }, [qty]);
+
+    useEffect(() => {
+        setQtyAdded(getQtyById(id));
+    }, [addToCart, getQtyById, id]);
 
     return (
         <div className="flex flex-col sm:flex-row items-center w-fit border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl">
@@ -41,7 +45,7 @@ const ItemDetail = ({ prod, updateCounter }) => {
                 <div className=" text-center mt-2">
                     <button disabled={cartBtnDisabled}
                         className='bg-color-1 text-white px-3 py-2 rounded-md text-base font-medium m-2 sm:m-3 disabled:bg-gray-300'
-                        onClick={addToCart}>
+                        onClick={itemToCart}>
                         AGREGAR A CARRITO
                     </button>
                 </div>

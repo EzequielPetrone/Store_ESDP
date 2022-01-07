@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
-import { deleteItembyId } from '../assets/datos';
 import { TrashIcon } from '@heroicons/react/outline'
+import { useCartContext } from '../context/cartContext';
 
-const CartItem = ({ updateCart, item }) => {
+const CartItem = ({ item }) => {
 
     const { id, descripcion, precio, imgUrl, qty } = item
-
-    const deleteItem = () => {
-        deleteItembyId(id)
-        updateCart()
-    }
+    const { deleteFromCart } = useCartContext()
 
     return (
         <div className="flex border-solid border-gray-200 border-2 shadow-lg rounded-xl m-3 w-full md:w-10/12 lg:w-8/12">
@@ -39,7 +35,7 @@ const CartItem = ({ updateCart, item }) => {
                 </Link>
             </div>
             <div className='w-3/12 flex justify-center'>
-                <button onClick={deleteItem}>
+                <button onClick={() => deleteFromCart(id)}>
                     <TrashIcon className="h-10 sm:h-12 p-1" aria-hidden="true" />
                 </button>
             </div>
