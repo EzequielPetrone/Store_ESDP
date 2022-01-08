@@ -12,7 +12,7 @@ const navigation = [
   { name: 'ALL', route: 'shop/all' }
 ]
 
-export default function NavBar({ cartCounter }) {
+export default function NavBar() {
   return (
     <Disclosure as="nav" className="bg-black">
       {({ open }) => (
@@ -59,7 +59,7 @@ export default function NavBar({ cartCounter }) {
               </div>
               <NavLink to='cart'>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <CartWidget cartCounter={cartCounter} />
+                  <CartWidget />
                 </div>
               </NavLink>
             </div>

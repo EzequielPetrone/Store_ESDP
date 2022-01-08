@@ -7,10 +7,10 @@ import Spinner from './Spinner';
 const ItemDetailContainer = () => {
 
     const { idprod } = useParams()
-    const [result, setResult] = useState()
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
-        setResult(<Spinner/>)
+        setResult(<Spinner />)
         const obtengoProd = async () => {
             let prod = await getProdbyId(idprod)
             setResult(prod ? <ItemDetail prod={prod} /> : <Navigate to='/shop/all' />)

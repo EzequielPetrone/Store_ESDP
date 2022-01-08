@@ -7,15 +7,17 @@ import Spinner from './Spinner';
 const ItemListContainer = () => {
 
     const { category } = useParams()
-    const [result, setResult] = useState()
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
         setResult(<Spinner />)
         const obtengoProductos = async () => {
             const productos = await getProductos(category);
-            setResult(!productos || productos.length === 0 ?
+            setResult(
+                !productos || productos.length === 0 ?
                 <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>
-                : <ItemList productos={productos} />)
+                : <ItemList productos={productos} />
+            )
         }
         obtengoProductos();
     }, [category])

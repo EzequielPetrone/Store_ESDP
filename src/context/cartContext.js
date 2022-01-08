@@ -1,16 +1,30 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 const CartContext = createContext([])
 export const useCartContext = () => useContext(CartContext)
 
 export function CartContextProvider({ children }) {
+
     const [cart, setCart] = useState([])
+    const [cartMonto, setCartMonto] = useState(0)
+    const [cartContador, setContador] = useState(0)
+
+    useEffect(() => {
+        let sumaContador = 0
+        let sumaMonto = 0
+        for (const item of cart) {
+            sumaContador += item.qty
+            sumaMonto += item.qty * item.precio
+        }
+        setContador(sumaContador)
+        setCartMonto(sumaMonto)
+    }, [cart])
 
     function addToCart(item) {
-        let list = [...cart]
-        if (list.some(e => e.id === item.id)) {
-            list.find(e => e.id === item.id).qty += item.qty
-            setCart(list)
+        let arrayAux = [...cart]
+        if (arrayAux.some(e => e.id === item.id)) {
+            arrayAux.find(e => e.id === item.id).qty += item.qty
+            setCart(arrayAux)
         } else {
             setCart([...cart, item])
         }
@@ -19,23 +33,7 @@ export function CartContextProvider({ children }) {
     const deleteFromCart = (id) => {
         const arrayAux = cart.filter(prod => prod.id !== id);
         setCart([...arrayAux]);
-    };
-
-    const getCartQty = () => {
-        let suma = 0
-        for (const p of cart) {
-            suma += p.qty
-        }
-        return suma
     }
-
-    const getMonto = () => {
-        let suma = 0;
-        for (const i of cart) {
-            suma += i.qty * i.precio;
-        }
-        return suma;
-    };
 
     const getQtyById = (id) => {
         let elemento = cart.find(e => e.id === id)
@@ -43,7 +41,7 @@ export function CartContextProvider({ children }) {
     }
 
     return (
-        <CartContext.Provider value={{ cart, setCart, addToCart, deleteFromCart, getCartQty, getMonto, getQtyById }}>
+        <CartContext.Provider value={{ cart, cartContador, cartMonto, addToCart, deleteFromCart, getQtyById }}>
             {children}
         </CartContext.Provider>
     )

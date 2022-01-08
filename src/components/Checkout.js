@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+
     const navigate = useNavigate()
+
     return (
         <section className="m-4 flex flex-col self-center items-center mx-auto">
             <div className='text-xl md:text-2xl text-color-1  m-4 sm:m-6'>CHECKOUT!</div>
