@@ -7,24 +7,25 @@ import Spinner from './Spinner';
 const ItemListContainer = () => {
 
     const { category } = useParams()
-    const [result, setResult] = useState(null)
+    const [productos, setProductos] = useState([])
+    const [flagRender, setFlagRender] = useState(false)
 
     useEffect(() => {
-        setResult(<Spinner />)
+        setFlagRender(false)
         const obtengoProductos = async () => {
-            const productos = await getProductos(category);
-            setResult(
-                !productos || productos.length === 0 ?
-                <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>
-                : <ItemList productos={productos} />
-            )
+            setProductos(await getProductos(category))
+            setFlagRender(true)
         }
         obtengoProductos();
     }, [category])
 
     return (
         <section className="my-2 w-full place-self-center flex justify-center">
-            {result}
+            {!flagRender ? <Spinner /> :
+                (productos && productos.length > 0 ?
+                    <ItemList productos={productos} /> :
+                    <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>)
+            }
         </section>
     )
 }

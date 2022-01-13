@@ -2,12 +2,18 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { useCartContext } from "../context/cartContext";
+import { useDivisaContext } from "../context/divisaContext";
 
 
 const ItemDetail = ({ prod }) => {
+
     const navigate = useNavigate()
+
     const { addToCart, getQtyById } = useCartContext()
+    const { divisa, customRound } = useDivisaContext()
+
     const { id, descripcion, precio, imgUrl, stock } = prod;
+
     const [cartBtnDisabled, setCartBtnDisabled] = useState(true);
     const [qty, setQty] = useState(0);
     const [qtyAdded, setQtyAdded] = useState(0);
@@ -32,15 +38,13 @@ const ItemDetail = ({ prod }) => {
                 <div className="flex justify-center h-56">
                     <img className="h-full rounded-lg" src={imgUrl} alt={descripcion} />
                 </div>
-                <div className=" text-center text-lg pt-2">$ {precio}</div>
+                <div className=" text-center text-lg pt-2">{divisa.shortcut} {customRound(precio)}</div>
             </div>
             <div className="w-64 h-5/6 flex justify-between flex-col">
                 <div className="text-sm m-4">
                     En Stock: {stock} <br /> En tu Carrito: {qtyAdded}
                 </div>
-
                 <ItemCount qty={qty} setQty={setQty} qtyAdded={qtyAdded} stock={stock} />
-
                 <div className=" text-center mt-2">
                     <button
                         disabled={cartBtnDisabled}

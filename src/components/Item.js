@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useDivisaContext } from '../context/divisaContext';
 
 const Item = ({ prod }) => {
 
     const { id, descripcion, precio, imgUrl } = prod;
+    const { divisa, customRound } = useDivisaContext()
 
     return (
         <Link to={'/producto/' + id}>
@@ -14,7 +16,7 @@ const Item = ({ prod }) => {
                     <img className="h-full rounded-lg" src={imgUrl} alt={descripcion} />
                 </div>
                 <div className=" text-lg pt-2 text-center">
-                    $ {precio}
+                    {divisa.shortcut} {customRound(precio)}
                 </div>
             </div>
         </Link>

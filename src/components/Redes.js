@@ -20,6 +20,7 @@ const arrayRedes = [
 ]
 
 const Redes = () => {
+
     return (
         <div className="div-redes bg-black w-full flex justify-center p-1 md:p-2">
             {arrayRedes.map(r =>

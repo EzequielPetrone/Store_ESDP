@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/outline'
 import { useCartContext } from '../context/cartContext';
+import { useDivisaContext } from '../context/divisaContext';
 
 const CartItem = ({ item }) => {
 
     const { id, descripcion, precio, imgUrl, qty } = item
     const { deleteFromCart } = useCartContext()
+    const { divisa, customRound } = useDivisaContext()
 
     return (
         <div className="flex border-solid border-gray-200 border-2 shadow-lg rounded-xl m-3 w-full md:w-10/12 lg:w-8/12">
@@ -21,13 +23,13 @@ const CartItem = ({ item }) => {
                             </div>
                             <div>
                                 <div className=" text-xs p-2">
-                                    UNI $ {precio}
+                                    UNI {divisa.shortcut} {customRound(precio)}
                                 </div>
                                 <div className=" text-xs p-2">
                                     QTY {qty}
                                 </div>
                                 <div className=" text-xs p-2">
-                                    TOT $ {precio * qty}
+                                    TOT {divisa.shortcut} {customRound(precio * qty)}
                                 </div>
                             </div>
                         </div>

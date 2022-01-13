@@ -2,11 +2,13 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 import { useCartContext } from '../context/cartContext'
 import { useState, useEffect } from "react";
+import { useDivisaContext } from "../context/divisaContext";
 
 const Cart = () => {
 
     const { cart, cartMonto } = useCartContext()
     const [cartEmpty, setCartEmpty] = useState()
+    const { divisa, customRound } = useDivisaContext()
 
     useEffect(() => {
         setCartEmpty(cart.length === 0)
@@ -23,7 +25,7 @@ const Cart = () => {
                                 <CartItem key={e.id} item={e} />
                             ))}
                         </div>
-                        <h2 className="text-xl sm:text-2xl m-3 sm:m-5"> Monto Total: $ {cartMonto} </h2>
+                        <h2 className="text-xl sm:text-2xl m-3 sm:m-5"> Monto Total: {divisa.shortcut} {customRound(cartMonto)} </h2>
                     </>
                     : <h1 className="text-xl sm:text-2xl font-medium m-2 sm:m-4"> Tu Carrito está vacío! </h1>
                 }

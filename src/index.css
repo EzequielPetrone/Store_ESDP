@@ -28,6 +28,8 @@
   border-color: #f3be4f;
 }
 
+/* FIN COLORES */
+
 /* BODY */
 
 #root {
@@ -37,3 +39,28 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* Finaliza estilos BODY/
+
+/* estilos Footer - Redes */
+
+.div-redes a svg {
+  padding: 0.75rem;
+  color: #f3be4f;
+  font-size: 3.5rem;
+  transition: all 0.5s;
+  transition-timing-function: ease;
+}
+
+@media only screen and (max-width: 639.999px) {
+  .div-redes a svg {
+    font-size: 3rem;
+  }
+}
+
+.div-redes a svg:hover {
+  color: #c94955;
+  transform: scale(1.25);
+}
+
+/* Finaliza estilos Footer - Redes */

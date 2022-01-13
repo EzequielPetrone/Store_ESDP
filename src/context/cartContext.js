@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { useLocalStorage } from '../assets/Hooks'
+import { useLocalStorage } from '../assets/hooks'
 
 const CartContext = createContext()
 export const useCartContext = () => useContext(CartContext)
@@ -7,7 +7,6 @@ export const useCartContext = () => useContext(CartContext)
 export function CartContextProvider({ children }) {
 
     const [cart, setCart] = useLocalStorage('ESDP_CART_KEY', [])
-    // const [cart, setCart] = useState([])
     const [cartMonto, setCartMonto] = useState(0)
     const [cartContador, setContador] = useState(0)
 
