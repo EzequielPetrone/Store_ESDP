@@ -13,6 +13,7 @@ const navigation = [
 ]
 
 export default function NavBar() {
+
   return (
     <Disclosure as="nav" className="bg-black">
       {({ open }) => (

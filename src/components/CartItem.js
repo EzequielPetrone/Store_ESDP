@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/outline'
 import { useCartContext } from '../context/cartContext';
 import { useDivisaContext } from '../context/divisaContext';
+import { memo } from 'react';
 
-const CartItem = ({ item }) => {
+const CartItem = memo(({ item }) => {
 
     const { id, descripcion, precio, imgUrl, qty } = item
     const { deleteFromCart } = useCartContext()
@@ -43,6 +44,6 @@ const CartItem = ({ item }) => {
             </div>
         </div>
     )
-}
+})
 
 export default CartItem

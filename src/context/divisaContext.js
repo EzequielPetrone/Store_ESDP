@@ -4,25 +4,24 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const DivisaContext = createContext()
 export const useDivisaContext = () => useContext(DivisaContext)
 
-export function DivisaContextProvider({ children }) {
+export const DivisaContextProvider = ({ children }) => {
 
     const [divisaList, setDivisaList] = useState([{ moneda: 'PESO ARG', shortcut: '$', valor: 1, ultAct: new Date() }])
     const [divisa, setDivisa] = useState(divisaList[0])
 
     const seleccionaMoneda = (moneda) => {
-        console.log(moneda);
         if (divisaList.some(e => e.moneda === moneda)) {
             setDivisa(divisaList.find(e => e.moneda === moneda))
         }
     }
 
     const actualizaDolar = () => {
-        console.log('entra a actualizadolar');
         let valorDolar
         // let dif = ultAct ? (new Date().getTime() - ultAct.getTime()) / (1000 * 60 * 60) : 0
         axios.get('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
             .then(rta => {
                 valorDolar = parseFloat(rta.data[7].casa.venta.replace(/,/g, '.'))
+                console.log('Se conectó correctamente a API Cot Dolar! Valor obtenido: ' + valorDolar)
             })
             .catch(err => {
                 console.log('No se pudo actualizar API Cot Dolar')

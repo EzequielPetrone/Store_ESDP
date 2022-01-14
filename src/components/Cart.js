@@ -43,6 +43,6 @@ const Cart = () => {
             </div>
         </section>
     )
-};
+}
 
 export default Cart;

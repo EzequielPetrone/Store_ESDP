@@ -29,7 +29,7 @@ const ItemDetail = ({ prod }) => {
 
     useEffect(() => {
         setQtyAdded(getQtyById(id));
-    }, [addToCart, getQtyById, id]);
+    }, [getQtyById, id]);
 
     return (
         <div className="flex flex-col sm:flex-row items-center w-fit border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl">
@@ -56,7 +56,7 @@ const ItemDetail = ({ prod }) => {
                 <button className="m-2 hover:scale-105" onClick={() => navigate(-1)}>VOLVER!</button>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default ItemDetail;

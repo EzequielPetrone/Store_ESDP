@@ -4,7 +4,7 @@ import { useLocalStorage } from '../assets/hooks'
 const CartContext = createContext()
 export const useCartContext = () => useContext(CartContext)
 
-export function CartContextProvider({ children }) {
+export const CartContextProvider = ({ children }) => {
 
     const [cart, setCart] = useLocalStorage('ESDP_CART_KEY', [])
     const [cartMonto, setCartMonto] = useState(0)

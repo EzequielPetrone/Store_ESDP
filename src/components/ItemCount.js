@@ -1,4 +1,3 @@
-
 const ItemCount = ({ qty, setQty, qtyAdded, stock }) => {
 
     return (

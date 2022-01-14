@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useDivisaContext } from '../context/divisaContext';
+import { memo } from 'react';
 
-const Item = ({ prod }) => {
+const Item = memo(({ prod }) => {
 
     const { id, descripcion, precio, imgUrl } = prod;
     const { divisa, customRound } = useDivisaContext()
@@ -21,6 +22,6 @@ const Item = ({ prod }) => {
             </div>
         </Link>
     )
-}
+})
 
 export default Item

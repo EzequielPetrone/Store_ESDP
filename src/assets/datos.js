@@ -1,3 +1,6 @@
+// import { getFirestore } from "firebase/firestore";
+// import { collection, getDocs } from "firebase/firestore";
+
 import img1 from '../images/productos/CD_fragil.jpg'
 import img2 from '../images/productos/CD_pelea.jpg'
 import img3 from '../images/productos/CD_acariciando.jpg'
@@ -29,5 +32,15 @@ const getProdbyId = (idprod) => {
     }, 1000);
   })
 }
+
+// READING FB
+// const db = getFirestore();
+// const muestroProductosFB = async () => {
+//   const querySnapshot = await getDocs(collection(db, "productos"));
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc.id);
+//     console.log(doc.data());
+//   });
+// }
 
 export { getProductos, getProdbyId }
