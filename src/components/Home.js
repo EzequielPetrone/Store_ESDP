@@ -9,7 +9,7 @@ const Home = () => {
                 <h2 className='text-center text-lg sm:text-2xl'>Bienvenido a la tienda e-commerce de tu banda favorita!</h2>
             </div>
             <button className='bg-color-1 text-white block px-3 py-2 rounded-md text-base font-medium m-5 sm:m-7 lg:m-9'>
-                <Link to='/shop/all'>COMPRAR!</Link>
+                <Link to='/shop-all'>COMPRAR!</Link>
             </button>
         </section >
     )

@@ -10,17 +10,17 @@ import img6 from '../images/productos/remera_3.jpg'
 
 const productos = [
   { id: '1', descripcion: 'CD Fragilinvencible', precio: 1200, imgUrl: img1, stock: 5, categoria: 'discos' },
-  { id: '2', descripcion: 'CD Pelea al Horror', precio: 1200, imgUrl: img2, stock: 15, categoria: 'discos' },
+  { id: '2', descripcion: 'CD Pelea al Horror', precio: 1200, imgUrl: img2, stock: 0, categoria: 'discos' },
   { id: '3', descripcion: 'CD Acariciando Fuego', precio: 1200, imgUrl: img3, stock: 10, categoria: 'discos' },
   { id: '4', descripcion: 'Remera Volviendo', precio: 2200, imgUrl: img4, stock: 5, categoria: 'indumentaria' },
-  { id: '5', descripcion: 'Remera Acariciando', precio: 2200, imgUrl: img5, stock: 15, categoria: 'indumentaria' },
+  { id: '5', descripcion: 'Remera Acariciando', precio: 2200, imgUrl: img5, stock: 0, categoria: 'indumentaria' },
   { id: '6', descripcion: 'Remera Calavera', precio: 2200, imgUrl: img6, stock: 10, categoria: 'indumentaria' }
 ]
 
 const getProductos = (cat) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(cat !== null && cat.toLowerCase() !== 'all' ? productos.filter(p => p.categoria.toLowerCase() === cat.toLowerCase()) : productos)
+      resolve(cat ? productos.filter(p => p.categoria.toLowerCase() === cat.toLowerCase()) : productos)
     }, 1000);
   })
 }

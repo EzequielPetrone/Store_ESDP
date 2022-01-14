@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Shows', route: 'shop/shows' },
   { name: 'Discos', route: 'shop/discos' },
   { name: 'Indumentaria', route: 'shop/indumentaria' },
-  { name: 'ALL', route: 'shop/all' }
+  { name: 'ALL', route: 'shop-all' }
 ]
 
 export default function NavBar() {

@@ -23,11 +23,9 @@ export default function App() {
           <main className='w-full flex flex-auto'>
             <Routes>
               <Route exact path='/' element={<Home />} />
+              <Route exact path='shop-all' element={<ItemListContainer />} />
               <Route exact path='shop/:category' element={<ItemListContainer />} />
-              {/* <Route exact path='shop' element={<ItemListContainer />} >
-              <Route exact path=':category' element={<ItemListContainer />} />
-            </Route> */}
-              <Route exact path='producto/:idprod' element={<ItemDetailContainer />} />
+              <Route exact path='product/:idprod' element={<ItemDetailContainer />} />
               <Route exact path='cart' element={<Cart />} />
               <Route exact path='cart/checkout' element={<Checkout />} />
               <Route path='*' element={<PageNotFound />} />

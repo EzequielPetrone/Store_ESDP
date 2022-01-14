@@ -13,7 +13,7 @@ const CartItem = memo(({ item }) => {
     return (
         <div className="flex border-solid border-gray-200 border-2 shadow-lg rounded-xl m-3 w-full md:w-10/12 lg:w-8/12">
             <div className="text-center text-md p-2 w-9/12">
-                <Link to={'/producto/' + id}>
+                <Link to={'/product/' + id}>
                     <div className='flex flex-col sm:flex-row justify-center items-center'>
                         <div className='flex justify-center gap-4 w-full sm:w-4/12'>
                             {descripcion}
@@ -22,6 +22,7 @@ const CartItem = memo(({ item }) => {
                             <div className="flex justify-center h-20">
                                 <img className="h-full rounded-lg" src={imgUrl} alt={descripcion} />
                             </div>
+                            {/* {stock <= qty ? <div className=" text-sm p-2">SIN STOCK!</div> : */}
                             <div>
                                 <div className=" text-xs p-2">
                                     UNI {divisa.shortcut} {customRound(precio)}
@@ -33,6 +34,7 @@ const CartItem = memo(({ item }) => {
                                     TOT {divisa.shortcut} {customRound(precio * qty)}
                                 </div>
                             </div>
+                            {/* } */}
                         </div>
                     </div>
                 </Link>

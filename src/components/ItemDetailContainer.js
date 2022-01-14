@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         const obtengoProd = async () => {
             const prod = await getProdbyId(idprod)
-            setResult(prod ? <ItemDetail prod={prod} /> : <Navigate to='/shop/all' />)
+            setResult(prod ? <ItemDetail prod={prod} /> : <Navigate to='/shop-all' />)
         }
         obtengoProd()
     }, [idprod])
