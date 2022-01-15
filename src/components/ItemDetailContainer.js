@@ -1,7 +1,7 @@
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react';
 import { useParams, Navigate } from "react-router-dom"
-import { getProdbyId } from '../assets/datos'
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import Spinner from './Spinner';
 
 const ItemDetailContainer = () => {
@@ -11,8 +11,18 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const obtengoProd = async () => {
-            const prod = await getProdbyId(idprod)
-            setResult(prod ? <ItemDetail prod={prod} /> : <Navigate to='/shop-all' />)
+            try {
+                const docRef = doc(getFirestore(), "productos", idprod);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    setResult(<ItemDetail prod={{ id: docSnap.id, ...docSnap.data() }} />)
+                } else {
+                    setResult(<Navigate to='/shop-all' />)
+                }
+            } catch (e) {
+                console.error("Error al querer acceder a un producto de la collection: ", e);
+                setResult(<Navigate to='/shop-all' />)
+            }
         }
         obtengoProd()
     }, [idprod])

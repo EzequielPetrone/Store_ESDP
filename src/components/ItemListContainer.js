@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
-import { getProductos } from "../assets/datos"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import ItemList from './ItemList';
 import Spinner from './Spinner';
 
@@ -13,10 +13,17 @@ const ItemListContainer = () => {
     useEffect(() => {
         setFlagRender(false)
         const obtengoProductos = async () => {
-            setProductos(await getProductos(category))
+            try {
+                const prodCol = collection(getFirestore(), "productos")
+                const queryDoc = category ? query(prodCol, where("categoria", "==", category)) : prodCol
+                const querySnapshot = await getDocs(queryDoc);
+                setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+            } catch (e) {
+                console.error("Error al querer acceder a la collection productos: ", e);
+            }
             setFlagRender(true)
         }
-        obtengoProductos();
+        obtengoProductos()
     }, [category])
 
     return (
