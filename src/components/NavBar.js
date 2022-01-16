@@ -6,7 +6,15 @@ import CartWidget from './CartWidget';
 
 const navigation = [
   { name: 'Home', route: '/' },
-  { name: 'Shows', route: 'shop/shows' },
+  { name: 'Pósters', route: 'shop/graficas' },
+  { name: 'Discos', route: 'shop/discos' },
+  { name: 'Indumentaria', route: 'shop/indumentaria' },
+  { name: 'ALL', route: 'shop-all' }
+]
+
+const navigationMobile = [
+  // { name: 'Home', route: '/' },
+  { name: 'Pósters', route: 'shop/graficas' },
   { name: 'Discos', route: 'shop/discos' },
   { name: 'Indumentaria', route: 'shop/indumentaria' },
   { name: 'ALL', route: 'shop-all' }
@@ -68,7 +76,7 @@ export default function NavBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col flex-wrap content-center">
-              {navigation.map((item) => (
+              {navigationMobile.map((item) => (
                 <Disclosure.Button key={item.name}>
                   <NavLink
                     key={item.name}

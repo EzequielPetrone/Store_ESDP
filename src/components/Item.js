@@ -8,15 +8,16 @@ const Item = memo(({ prod }) => {
     const { divisa, customRound } = useDivisaContext()
 
     return (
-        <Link to={'/product/' + id}>
-            <div className=" w-64 border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl bg-black text-color-2 hover:scale-105 duration-500">
-                <div className="text-center text-lg pb-2">
+        <Link className=' w-full' to={'/product/' + id}>
+            <div style={{ minHeight: '15.5rem' }}
+                className=" w-full flex flex-col justify-between border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl bg-black text-color-2 hover:scale-105 duration-500">
+                <div className="text-center text-sm sm:text-md md:text-lg pb-2">
                     {descripcion}
                 </div>
-                <div className="flex justify-center h-56">
-                    <img className="h-full rounded-lg" src={imgUrl} alt={descripcion} />
+                <div className="flex justify-center">
+                    <img className=" max-h-44 sm:max-h-48 rounded-lg" src={imgUrl} alt={descripcion} />
                 </div>
-                <div className=" text-lg pt-2 text-center">
+                <div className=" text-sm sm:text-md md:text-lg pt-2 text-center">
                     {stock <= 0 ? 'SIN STOCK!' : `${divisa.shortcut} ${customRound(precio)}`}
                 </div>
             </div>
