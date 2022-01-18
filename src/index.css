@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FONTS */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&family=Major+Mono+Display&display=swap'); */
+
 /* COLORES */
 
 .disabled\:hover\:text-color-1:hover:disabled , .hover\:text-color-1:hover , .text-color-1{
@@ -38,7 +46,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  /* font-family: 'Grandstander', cursive; */
+  /* font-family: 'Major Mono Display', monospace; */
 }
+
+/* main {
+  font-family: 'Dongle', sans-serif;
+  font-family: 'Changa', sans-serif;
+  font-family: 'Noto Sans Display', sans-serif;
+} */
 
 /* Finaliza estilos BODY/
 

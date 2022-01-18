@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import ItemList from './ItemList';
-import Spinner from './Spinner';
+import Spinner from '../assets/Spinner';
 
 const ItemListContainer = () => {
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { useCartContext } from "../context/cartContext";
 import { useDivisaContext } from "../context/divisaContext";
-
+import Modal from "../assets/Modal"
 
 const ItemDetail = ({ prod }) => {
 
@@ -17,6 +17,8 @@ const ItemDetail = ({ prod }) => {
     const [cartBtnDisabled, setCartBtnDisabled] = useState(true);
     const [qty, setQty] = useState(0);
     const [qtyAdded, setQtyAdded] = useState(0);
+
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     const itemToCart = () => {
         addToCart({ ...prod, qty: qty });
@@ -32,10 +34,10 @@ const ItemDetail = ({ prod }) => {
     }, [getQtyById, id]);
 
     return (
-        <div className="flex flex-col sm:flex-row items-center w-fit border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl">
+        <div className="flex portrait:flex-col landscape:flex-row items-center w-fit border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl">
             <div className="w-64 h-full">
                 <div className="text-center text-lg pb-2">{descripcion}</div>
-                <div className="flex justify-center h-56">
+                <div className="flex justify-center h-56 cursor-pointer" onClick={() => setModalIsOpen(true)}>
                     <img className="h-full rounded-lg" src={imgUrl} alt={descripcion} />
                 </div>
                 <div className=" text-center text-lg pt-2">{divisa.shortcut} {customRound(precio)}</div>
@@ -55,6 +57,15 @@ const ItemDetail = ({ prod }) => {
                 </div>
                 <button className="m-2 hover:scale-105" onClick={() => navigate(-1)}>VOLVER!</button>
             </div>
+            {modalIsOpen &&
+                <Modal setModalIsOpen={setModalIsOpen}>
+                    <img
+                        style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                        className="rounded-lg border-2 border-black"
+                        src={imgUrl} alt={descripcion}
+                    />
+                </Modal>
+            }
         </div>
     )
 }

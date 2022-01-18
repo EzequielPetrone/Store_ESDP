@@ -1,5 +1,7 @@
 import React from "react";
 
+// custom hook para el manejo de LOCAL STORAGE:
+
 export const useLocalStorage = (keyName, defaultValue) => {
     const [storedValue, setStoredValue] = React.useState(() => {
         try {

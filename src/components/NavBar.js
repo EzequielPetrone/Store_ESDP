@@ -4,21 +4,14 @@ import { NavLink, Link } from 'react-router-dom';
 import logo from '../images/logo.webp';
 import CartWidget from './CartWidget';
 
-const navigation = [
-  { name: 'Home', route: '/' },
+const navigationMobile = [
   { name: 'Pósters', route: 'shop/graficas' },
   { name: 'Discos', route: 'shop/discos' },
   { name: 'Indumentaria', route: 'shop/indumentaria' },
   { name: 'ALL', route: 'shop-all' }
 ]
 
-const navigationMobile = [
-  // { name: 'Home', route: '/' },
-  { name: 'Pósters', route: 'shop/graficas' },
-  { name: 'Discos', route: 'shop/discos' },
-  { name: 'Indumentaria', route: 'shop/indumentaria' },
-  { name: 'ALL', route: 'shop-all' }
-]
+const navigation = [{ name: 'Home', route: '/' }, ...navigationMobile]
 
 export default function NavBar() {
 
