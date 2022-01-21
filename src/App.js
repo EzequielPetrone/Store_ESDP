@@ -5,7 +5,8 @@ import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
-import Checkout from './components/Checkout';
+// import Checkout from './components/Checkout';
+import CheckoutForm from './components/CheckoutForm';
 import PageNotFound from './components/PageNotFound';
 import DivisaSelector from "./components/DivisaSelector";
 import { CartContextProvider } from './context/cartContext';
@@ -20,14 +21,14 @@ export default function App() {
           <header className='w-full sticky top-0'>
             <NavBar />
           </header>
-          <main className='w-full flex flex-auto'>
+          <main className='w-full flex justify-center flex-auto'>
             <Routes>
               <Route exact path='/' element={<Home />} />
               <Route exact path='shop-all' element={<ItemListContainer />} />
               <Route exact path='shop/:category' element={<ItemListContainer />} />
               <Route exact path='product/:idprod' element={<ItemDetailContainer />} />
               <Route exact path='cart' element={<Cart />} />
-              <Route exact path='cart/checkout' element={<Checkout />} />
+              <Route exact path='cart/checkout' element={<CheckoutForm />} />
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </main>

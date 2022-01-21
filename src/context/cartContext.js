@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { useLocalStorage } from '../assets/hooks'
+import { useLocalStorage } from '../assets/Hooks'
 
 const CartContext = createContext()
 export const useCartContext = () => useContext(CartContext)
