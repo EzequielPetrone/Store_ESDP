@@ -7,7 +7,7 @@ import Spinner from '../assets/Spinner';
 const ItemDetailContainer = () => {
 
     const { idprod } = useParams()
-    const [result, setResult] = useState(<Spinner />)
+    const [result, setResult] = useState(<Spinner leyenda='Cargando producto' />)
 
     useEffect(() => {
         const obtengoProd = async () => {

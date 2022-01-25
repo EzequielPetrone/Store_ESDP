@@ -11,7 +11,8 @@ const navigationMobile = [
   { name: 'ALL', route: 'shop-all' }
 ]
 
-const navigation = [{ name: 'Home', route: '/' }, ...navigationMobile]
+// const navigation = [{ name: 'Home', route: '/' }, ...navigationMobile]
+const navigation = [...navigationMobile]
 
 export default function NavBar() {
 

@@ -60,7 +60,7 @@ const ItemDetail = ({ prod }) => {
             {modalIsOpen &&
                 <Modal setModalIsOpen={setModalIsOpen}>
                     <img
-                        style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                        style={{ maxHeight: '90vh', maxWidth: '90vw' }}
                         className="rounded-lg border-2 border-black"
                         src={imgUrl} alt={descripcion}
                     />

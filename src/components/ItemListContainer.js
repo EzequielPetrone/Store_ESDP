@@ -28,7 +28,7 @@ const ItemListContainer = () => {
 
     return (
         <section className="my-2 mx-auto w-full sm:w-11/12 lg:w-10/12 2xl:w-9/12 place-self-center flex justify-center">
-            {!flagRender ? <Spinner /> :
+            {!flagRender ? <Spinner leyenda='Cargando productos' /> :
                 (productos && productos.length > 0 ?
                     <ItemList productos={productos} /> :
                     <div className='text-xl md:text-2xl text-color-1'>No hay items para mostrar!</div>)

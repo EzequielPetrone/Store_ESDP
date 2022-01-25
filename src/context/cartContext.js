@@ -41,8 +41,10 @@ export const CartContextProvider = ({ children }) => {
         return elemento ? elemento.qty : 0
     }
 
+    const vaciarCart = () => setCart([])
+
     return (
-        <CartContext.Provider value={{ cart, cartContador, cartMonto, addToCart, deleteFromCart, getQtyById }}>
+        <CartContext.Provider value={{ cart, cartContador, cartMonto, addToCart, deleteFromCart, getQtyById, vaciarCart }}>
             {children}
         </CartContext.Provider>
     )
