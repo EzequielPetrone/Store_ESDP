@@ -6,14 +6,12 @@ const DivisaSelector = () => {
 
     return (
         <div>
-            {/* <label htmlFor='moneda'>Moneda</label> */}
             <select
-                // name="moneda" 
-                className=" bg-black text-color-2 text-center rounded "
+                className=" bg-black text-color-2 text-center text-lg rounded"
                 onChange={e => seleccionaMoneda(e.target.value)}
             >
                 {divisaList.map(d =>
-                    <option key={d.moneda} value={d.moneda}>
+                    <option key={d.moneda} value={d.moneda}                    >
                         {d.shortcut}
                     </option>
                 )}

@@ -5,10 +5,8 @@ import ItemListContainer from './components/ItemListContainer';
 import Redes from './components/Redes';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
-// import Checkout from './components/Checkout';
 import CheckoutForm from './components/CheckoutForm';
 import PageNotFound from './components/PageNotFound';
-import DivisaSelector from "./components/DivisaSelector";
 import { CartContextProvider } from './context/cartContext';
 import { DivisaContextProvider } from './context/divisaContext';
 
@@ -34,9 +32,8 @@ export default function App() {
           </main>
           <footer className='w-full bg-black'>
             <Redes />
-            <div className='flex justify-between mx-3 mb-2 sm:mx-4 sm:mb-3'>
-            <span className='text-color-2 text-xs sm:text-sm'>Developed by Ezequiel Petrone</span>
-            <DivisaSelector />
+            <div className='flex justify-end mx-3 mb-2 sm:mx-4 sm:mb-3'>
+              <span className='text-color-2 text-xs sm:text-sm'>Developed by Ezequiel Petrone</span>
             </div>
           </footer>
         </DivisaContextProvider>

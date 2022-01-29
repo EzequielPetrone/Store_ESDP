@@ -3,6 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { NavLink, Link } from 'react-router-dom';
 import logo from '../images/logo.webp';
 import CartWidget from './CartWidget';
+import DivisaSelector from './DivisaSelector';
 
 const navigationMobile = [
   { name: 'Pósters', route: 'shop/graficas' },
@@ -10,7 +11,6 @@ const navigationMobile = [
   { name: 'Indumentaria', route: 'shop/indumentaria' },
   { name: 'ALL', route: 'shop-all' }
 ]
-
 // const navigation = [{ name: 'Home', route: '/' }, ...navigationMobile]
 const navigation = [...navigationMobile]
 
@@ -34,7 +34,7 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
+                <div className="flex items-center custom-position-logo">
                   <Link to='/'>
                     <img
                       className="block h-12 md:h-16 w-auto rounded-full hover:animate-spin anima"
@@ -52,7 +52,6 @@ export default function NavBar() {
                         className={({ isActive }) =>
                           (isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' block px-3 py-2 rounded-md text-base font-medium'
                         }
-                      // aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </NavLink>
@@ -60,11 +59,15 @@ export default function NavBar() {
                   </div>
                 </div>
               </div>
-              <NavLink to='cart'>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <CartWidget />
-                </div>
-              </NavLink>
+              <div className='flex items-center gap-4 sm:gap-6 pr-2 static inset-auto sm:pr-0'>
+                <DivisaSelector />
+                <NavLink to='cart'>
+                  {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"> */}
+                  <div className="">
+                    <CartWidget />
+                  </div>
+                </NavLink>
+              </div>
             </div>
           </div>
 
@@ -78,7 +81,6 @@ export default function NavBar() {
                     className={({ isActive }) =>
                       (isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' block px-3 py-2 rounded-md text-base font-medium'
                     }
-                  // aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
                   </NavLink>

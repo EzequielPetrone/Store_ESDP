@@ -24,7 +24,7 @@ export default function FinalModal({ orderId, order }) {
 
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="fixed z-50 inset-0 overflow-y-auto" initialFocus={aceptButtonRef} onClose={setOpen}>
-                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-10 text-center sm:block sm:p-0">
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -65,7 +65,7 @@ export default function FinalModal({ orderId, order }) {
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    No se pudo generar su orden.<br/>
+                                                    No se pudo generar su orden.<br />
                                                     Intente de nuevo más tarde.
                                                 </p>
                                             </div>
