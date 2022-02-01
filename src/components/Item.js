@@ -10,7 +10,7 @@ const Item = memo(({ prod }) => {
     return (
         <Link className=' w-full' to={'/product/' + id}>
             <div style={{ minHeight: '15.5rem' }}
-                className=" w-full flex flex-col justify-between border-solid border-gray-200 border-2 shadow-lg p-2 rounded-xl bg-black text-color-2 hover:scale-105 duration-500">
+                className=" w-full flex flex-col justify-between shadow-lg shadow-gray-700 p-2 rounded-xl font-medium bg-black text-color-2 hover:scale-105 duration-500">
                 <div className="text-center text-sm sm:text-md md:text-lg pb-2">
                     {descripcion}
                 </div>

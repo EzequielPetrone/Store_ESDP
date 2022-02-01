@@ -20,7 +20,7 @@ export default function CheckoutForm() {
     const [orderId, setOrderId] = useState(null)
     const [order, setOrder] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
-    
+
 
     const checkoutOrder = async (e) => {
         e.preventDefault();
@@ -82,21 +82,6 @@ export default function CheckoutForm() {
         }
     }
 
-    // const uploadOrder = async () => {
-    //     setOrderId(false)
-    //     try {
-    //         const docRef = await addDoc(collection(getFirestore(), "orders3"), {
-    //             ...order,
-    //             orderTimeStamp: serverTimestamp()
-    //         });
-    //         console.log('New Order added: ' + docRef.id);
-    //         setOrderId(docRef.id)
-    //     } catch (e) {
-    //         console.error("Error al querer hacer upload de una nueva orden: ", e);
-    //         setOrderId(-1)
-    //     }
-    // }
-
     return (
         cartMonto <= 0
             ?
@@ -115,7 +100,7 @@ export default function CheckoutForm() {
                                 Checkout <br /> {divisa.shortcut} {customRound(cartMonto)}
                             </span>
                             <button
-                                className="m-2 hover:scale-105 text-color-1"
+                                className="m-2 hover:scale-105 text-color-1  font-medium"
                                 onClick={() => setModalIsOpen(true)}
                             >
                                 VER DETALLES!
@@ -173,11 +158,11 @@ export default function CheckoutForm() {
                                         </div>
                                     </div>
                                     <div className="px-4 py-2 bg-gray-50 sm:px-6 flex justify-between">
-                                        <button className="m-2 hover:scale-105" onClick={() => navigate(-1)}>VOLVER!</button>
+                                        <button className="m-2 text-color-1 font-medium hover:scale-105" onClick={() => navigate(-1)}>VOLVER!</button>
                                         <button
                                             type="submit"
                                             disabled={!(validName & validEmail & validPhone)}
-                                            className="bg-color-1 text-white  px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4 disabled:bg-gray-300"
+                                            className="bg-color-1 hover:bg-color-3 text-white  px-3 py-2 rounded-md text-base font-medium m-2 sm:m-4 disabled:bg-gray-300"
                                         >
                                             Confirmar
                                         </button>
@@ -187,7 +172,7 @@ export default function CheckoutForm() {
                         </div>
                     </div>
                 }
-                {orderId && <FinalModal orderId={orderId} order={order}/>}
+                {orderId && <FinalModal orderId={orderId} order={order} />}
             </section>
     )
 }

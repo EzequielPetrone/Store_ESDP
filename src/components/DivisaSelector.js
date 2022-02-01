@@ -7,7 +7,7 @@ const DivisaSelector = () => {
     return (
         <div>
             <select
-                className=" bg-black text-color-2 text-center text-lg rounded"
+                className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white text-center text-lg font-medium rounded cursor-pointer"
                 onChange={e => seleccionaMoneda(e.target.value)}
             >
                 {divisaList.map(d =>

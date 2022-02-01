@@ -29,6 +29,11 @@
   background-color: #972e34;
 }
 
+.hover\:bg-color-3:hover,
+.bg-color-3 {
+  background-color: #702227;
+}
+
 .hover\:bg-color-2:hover,
 .bg-color-2 {
   background-color: #f3be4f;

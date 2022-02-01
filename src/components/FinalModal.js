@@ -7,7 +7,6 @@ import { useCartContext } from '../context/cartContext'
 
 export default function FinalModal({ orderId, order }) {
 
-    const [open, setOpen] = useState(true)
     const aceptButtonRef = useRef(null)
     const navigate = useNavigate()
     const { vaciarCart } = useCartContext()
@@ -22,8 +21,8 @@ export default function FinalModal({ orderId, order }) {
 
     return (
 
-        <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="fixed z-50 inset-0 overflow-y-auto" initialFocus={aceptButtonRef} onClose={setOpen}>
+        <Transition.Root show={true} as={Fragment}>
+            <Dialog as="div" className="fixed z-50 inset-0 overflow-y-auto" initialFocus={aceptButtonRef} onClose={() => null}>
                 <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-10 text-center sm:block sm:p-0">
                     <Transition.Child
                         as={Fragment}
