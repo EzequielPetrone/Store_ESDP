@@ -6,10 +6,11 @@ const Modal = ({ setModalIsOpen, children }) => {
             className='flex justify-center items-center w-screen h-screen fixed left-0 top-0 z-30'
             onClick={() => setModalIsOpen(false)}
         >
-            <div 
-            className='flex justify-center' 
-            style={{ maxHeight: '90vh', maxWidth: '90vw' }}
-            onClick={(e) => e.stopPropagation()}>
+            <div
+                className='flex justify-center'
+                style={{ maxHeight: '90vh', maxWidth: '90vw' }}
+                onClick={(e) => e.stopPropagation()}
+            >
                 {children}
             </div>
         </div>
