@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-import { MenuIcon, SearchIcon, ShoppingBagIcon, XIcon } from '@heroicons/react/outline'
+import { SearchIcon } from '@heroicons/react/outline'
 import ItemList from './ItemList';
 import Spinner from '../assets/Spinner';
 
@@ -39,7 +39,7 @@ const ItemListContainer = () => {
     }
 
     return (
-        <section className="my-2 mx-auto w-full sm:w-11/12 lg:w-10/12 2xl:w-9/12 flex justify-center">
+        <section className="my-2 w-full sm:w-11/12 lg:w-10/12 2xl:w-9/12 flex justify-center">
             {!flagRender ?
                 <Spinner leyenda='Cargando productos' />
                 :
@@ -47,11 +47,11 @@ const ItemListContainer = () => {
                     {productos.length > 0 &&
                         <div className='flex justify-center'>
                             <input
-                                className='w-2/3 border-b-2 mt-8 mb-6 p-2 focus:border-transparent outline-gray-500 placeholder-gray-500 border-gray-500 relative left-5'
+                                className='w-2/3 2xl:w-1/2 border-b-2 mt-8 mb-6 p-2 focus:border-transparent outline-gray-500 placeholder-gray-500 border-gray-500 relative left-5'
                                 placeholder='FILTRAR'
                                 onChange={filtraProductos}
                             />
-                            <SearchIcon className='w-8 text-gray-500 relative right-5 top-1'/>
+                            <SearchIcon className='w-8 text-gray-500 relative right-5 top-1' />
                         </div>
                     }
                     {productosF.length > 0 ?

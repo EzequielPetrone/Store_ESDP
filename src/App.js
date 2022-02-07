@@ -16,7 +16,7 @@ export default function App() {
     <BrowserRouter>
       <CartContextProvider>
         <DivisaContextProvider>
-          <header className='w-full sticky top-0'>
+          <header className='w-full sticky top-0 z-10'>
             <NavBar />
           </header>
           <main className='w-full flex justify-center flex-auto'>
@@ -30,7 +30,7 @@ export default function App() {
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </main>
-          <footer className='w-full bg-black'>
+          <footer className='w-full bg-black '>
             <Redes />
             <div className='flex justify-end mx-3 mb-2 sm:mx-4 sm:mb-3'>
               <span className='text-color-2 text-xs sm:text-sm'>Developed by Ezequiel Petrone</span>

@@ -1,16 +1,41 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import portada from '../images/portada-1_.jpg'
 
 const Home = () => {
 
+    const navigate = useNavigate()
+    const [auxHeight, setAuxHeight] = useState(0);
+
+    useEffect(() => {
+        function handleResize() {
+            setAuxHeight(window.innerHeight - (document.querySelector('header').offsetHeight + document.querySelector('footer').offsetHeight))
+        }
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, [])
+
     return (
-        <section className=" bg-top bg-cover w-full flex flex-col items-center justify-between">
-            <div className="branding-row flex flex-col items-center gap-4 p-5 sm:p-7 lg:p-9">
-                <h1 className='text-color-1 font-bold text-2xl sm:text-4xl md:text-5xl'>El Síndrome De Peter</h1>
-                <h2 className='text-center text-lg sm:text-2xl'>Bienvenido a la tienda e-commerce de tu banda favorita!</h2>
+        <section className="w-full relative flex flex-col items-center justify-between overflow-x-hidden bg-black">
+            <img
+                src={portada}
+                alt="Portada Síndrome de Peter"
+                style={{ height: auxHeight }}
+                className=" max-w-none"
+            />
+            <div className="text-white font-bold absolute left-0 p-4 sm:p-6 lg:p-8 flex flex-col text-2xl sm:text-4xl lg:text-6xl">
+                <span className='px-2 pb-1 mix-blend-difference backdrop-brightness-75'>
+                    El<br />Síndrome<br />De<br />Peter
+                </span>
+                <span
+                    className="px-2 pb-1 text-white bg-color-1 cursor-pointer"
+                    onClick={() => navigate('/shop-all')}
+                >
+                    SHOP!
+                </span>
             </div>
-            <button className='bg-color-1 hover:bg-color-3 text-white block px-3 py-2 rounded-md text-base font-medium m-5 sm:m-7 lg:m-9'>
-                <Link to='/shop-all'>COMPRAR!</Link>
-            </button>
         </section >
     )
 }
