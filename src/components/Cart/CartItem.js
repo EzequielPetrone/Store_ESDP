@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/outline'
-import { useCartContext } from '../context/cartContext';
-import { useDivisaContext } from '../context/divisaContext';
+import { useCartContext } from '../../context/cartContext';
+import { useDivisaContext } from '../../context/divisaContext';
 import { memo } from 'react';
 
 const CartItem = memo(({ item }) => {

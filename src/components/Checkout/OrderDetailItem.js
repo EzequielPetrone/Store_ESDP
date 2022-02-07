@@ -1,4 +1,4 @@
-import { useDivisaContext } from '../context/divisaContext'
+import { useDivisaContext } from '../../context/divisaContext'
 
 const OrderDetailItem = ({ data }) => {
 

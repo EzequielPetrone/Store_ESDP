@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import ItemListContainer from './components/ItemListContainer';
-import Redes from './components/Redes';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart';
-import CheckoutForm from './components/CheckoutForm';
-import PageNotFound from './components/PageNotFound';
+import NavBar from './components/Header/NavBar';
+import Home from './components/Home/Home';
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import Redes from './components/Footer/Redes';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
+import CheckoutForm from './components/Checkout/CheckoutForm';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 import { CartContextProvider } from './context/cartContext';
 import { DivisaContextProvider } from './context/divisaContext';
 
@@ -32,8 +32,8 @@ export default function App() {
           </main>
           <footer className='w-full bg-black '>
             <Redes />
-            <div className='flex justify-end mx-3 mb-2 sm:mx-4 sm:mb-3'>
-              <span className='text-color-2 text-xs sm:text-sm'>Developed by Ezequiel Petrone</span>
+            <div className='flex justify-end mx-4 mb-2'>
+              <span className='text-color-2 text-xs 2xl:text-sm'>Developed by Ezequiel Petrone</span>
             </div>
           </footer>
         </DivisaContextProvider>

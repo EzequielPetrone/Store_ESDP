@@ -12,6 +12,10 @@
 
 /* COLORES */
 
+.bg-color-0 {
+  background-color: rgba(1, 1, 1, .75);
+}
+
 .disabled\:hover\:text-color-1:hover:disabled,
 .hover\:text-color-1:hover,
 .text-color-1 {
@@ -96,7 +100,7 @@
 }
 
 .div-redes a svg:hover {
-  color: #c94955;
+  color: #972e34;
   transform: scale(1.25);
 }
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useDivisaContext } from '../context/divisaContext';
+import { useDivisaContext } from '../../context/divisaContext';
 import { memo } from 'react';
 
 const Item = memo(({ prod }) => {

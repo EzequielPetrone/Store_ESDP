@@ -2,10 +2,10 @@ import { useState } from 'react';
 import isEmail from 'validator/es/lib/isEmail';
 import isMobilePhone from "validator/es/lib/isMobilePhone";
 import { Navigate, useNavigate } from "react-router-dom"
-import { useCartContext } from '../context/cartContext';
-import { useDivisaContext } from '../context/divisaContext';
+import { useCartContext } from '../../context/cartContext';
+import { useDivisaContext } from '../../context/divisaContext';
 import { serverTimestamp, collection, addDoc, getFirestore } from 'firebase/firestore';
-import Spinner from '../assets/Spinner';
+import Spinner from '../Utilities/Spinner';
 import OrderDetailModal from './OrderDetailModal';
 import FinalModal from './FinalModal';
 

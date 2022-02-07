@@ -3,7 +3,7 @@ import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon, CheckIcon } from '@heroicons/react/outline'
 import { useNavigate } from 'react-router-dom'
-import { useCartContext } from '../context/cartContext'
+import { useCartContext } from '../../context/cartContext'
 
 export default function FinalModal({ orderId, order }) {
 

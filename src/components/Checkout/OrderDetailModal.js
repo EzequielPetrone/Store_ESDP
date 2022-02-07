@@ -1,5 +1,5 @@
-import Modal from '../assets/Modal'
-import { useCartContext } from '../context/cartContext'
+import Modal from '../Utilities/Modal'
+import { useCartContext } from '../../context/cartContext'
 import OrderDetailItem from './OrderDetailItem'
 
 const OrderDetailModal = ({ setModalIsOpen }) => {

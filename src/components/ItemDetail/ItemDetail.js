@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
-import { useCartContext } from "../context/cartContext";
-import { useDivisaContext } from "../context/divisaContext";
-import Modal from "../assets/Modal"
+import { useCartContext } from "../../context/cartContext";
+import { useDivisaContext } from "../../context/divisaContext";
+import Modal from "../Utilities/Modal"
 
 const ItemDetail = ({ prod }) => {
 

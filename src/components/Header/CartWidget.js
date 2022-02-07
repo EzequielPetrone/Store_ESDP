@@ -1,5 +1,5 @@
 import { ShoppingCartIcon } from '@heroicons/react/outline'
-import { useCartContext } from '../context/cartContext'
+import { useCartContext } from '../../context/cartContext'
 
 const CartWidget = () => {
 

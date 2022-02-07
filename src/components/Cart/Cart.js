@@ -1,8 +1,8 @@
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
-import { useCartContext } from '../context/cartContext'
+import { useCartContext } from '../../context/cartContext'
 import { useState, useEffect } from "react";
-import { useDivisaContext } from "../context/divisaContext";
+import { useDivisaContext } from "../../context/divisaContext";
 
 const Cart = () => {
 

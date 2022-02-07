@@ -1,18 +1,16 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { NavLink, Link } from 'react-router-dom';
-import logo from '../images/logo.webp';
+import logo from '../../images/logo.webp';
 import CartWidget from './CartWidget';
 import DivisaSelector from './DivisaSelector';
 
-const navigationMobile = [
+const navigation = [
   { name: 'Pósters', route: 'shop/graficas' },
   { name: 'Discos', route: 'shop/discos' },
   { name: 'Indumentaria', route: 'shop/indumentaria' },
   { name: 'ALL', route: 'shop-all' }
 ]
-// const navigation = [{ name: 'Home', route: '/' }, ...navigationMobile]
-const navigation = [...navigationMobile]
 
 export default function NavBar() {
 
@@ -73,7 +71,7 @@ export default function NavBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col flex-wrap content-center">
-              {navigationMobile.map((item) => (
+              {navigation.map((item) => (
                 <Disclosure.Button key={item.name}>
                   <NavLink
                     key={item.name}

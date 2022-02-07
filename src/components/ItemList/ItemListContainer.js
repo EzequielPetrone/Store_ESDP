@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { SearchIcon } from '@heroicons/react/outline'
 import ItemList from './ItemList';
-import Spinner from '../assets/Spinner';
+import Spinner from '../Utilities/Spinner';
 
 const ItemListContainer = () => {
 
