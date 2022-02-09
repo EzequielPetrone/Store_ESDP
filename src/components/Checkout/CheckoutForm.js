@@ -21,7 +21,8 @@ export default function CheckoutForm() {
     const [order, setOrder] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
-
+    // Function que se dispara al presionar el botón Finalizar.
+    // Agrupa todos los datos de la ORDEN y la graba en la BD de Firebase.
     const checkoutOrder = async (e) => {
         e.preventDefault();
         setOrderId(false)
@@ -60,6 +61,8 @@ export default function CheckoutForm() {
         }
     }
 
+    // Function que valida los valores ingresados en cada campo del Form. 
+    // Sólo habilita el botón Finalizar si todos los input están correctos.
     const validateInput = (e) => {
 
         switch (e.target.type) {

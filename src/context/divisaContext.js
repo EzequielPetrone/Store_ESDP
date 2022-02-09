@@ -4,6 +4,9 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const DivisaContext = createContext()
 export const useDivisaContext = () => useContext(DivisaContext)
 
+//Context creado para manejar en toda la app la selección de moneda, peso o dolar.
+// El valor del dólar lo obtiene por API.
+
 export const DivisaContextProvider = ({ children }) => {
 
     const [divisaList, setDivisaList] = useState([{ moneda: 'PESO ARG', shortcut: '$', valor: 1, ultAct: new Date() }])
@@ -17,7 +20,6 @@ export const DivisaContextProvider = ({ children }) => {
 
     const actualizaDolar = () => {
         let valorDolar
-        // let dif = ultAct ? (new Date().getTime() - ultAct.getTime()) / (1000 * 60 * 60) : 0
         axios.get('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
             .then(rta => {
                 valorDolar = parseFloat(rta.data[7].casa.venta.replace(/,/g, '.'))

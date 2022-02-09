@@ -3,6 +3,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fab)
 
+// Componente que muestra los links externos a todas las redes sociales de la banda
+
 const ItemRedes = ({ href, value }) => {
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" aria-label={value}>

@@ -9,6 +9,8 @@ const ItemDetailContainer = () => {
     const { idprod } = useParams()
     const [result, setResult] = useState(<Spinner leyenda='Cargando producto' />)
 
+    // El siguiente useEffect se ejecuta cada vez que el hook useParams obtiene una nuevo ID de producto.
+    // Es la porción de código donde se obtiene los detalles del producto requerido de la BD de Firebase.
     useEffect(() => {
         const obtengoProd = async () => {
             try {

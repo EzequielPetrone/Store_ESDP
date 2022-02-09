@@ -9,6 +9,8 @@ const Home = () => {
     const navigate = useNavigate()
     const [auxHeight, setAuxHeight] = useState(0);
 
+    // Obtengo en forma dinámica el alto disponible entre Header y Footer para ajustar la imagen de Portada y que siempre se vea bien
+    // (no quería una background img, ni el cover ni el contain generaban el efecto deseado)
     useEffect(() => {
         function handleResize() {
             setAuxHeight(window.innerHeight - (document.querySelector('header').offsetHeight + document.querySelector('footer').offsetHeight))

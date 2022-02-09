@@ -9,6 +9,7 @@ const ItemDetail = ({ prod }) => {
 
     const navigate = useNavigate()
 
+    // Obtengo states y functions útiles de cada context.
     const { addToCart, getQtyById } = useCartContext()
     const { divisa, customRound } = useDivisaContext()
 
@@ -25,10 +26,12 @@ const ItemDetail = ({ prod }) => {
         setQty(0);
     };
 
+    // Control de que el botón Agregar a Carrito se habilite sólo si hay alguna qty seleccionada.
     useEffect(() => {
         setCartBtnDisabled(qty === 0 ? true : false);
     }, [qty]);
 
+    // Mantiene siempre actualizado la cantidad de items de ese producto específico ya añadida al carrito
     useEffect(() => {
         setQtyAdded(getQtyById(id));
     }, [getQtyById, id]);
@@ -65,6 +68,8 @@ const ItemDetail = ({ prod }) => {
                 </div>
                 <button className="m-2 text-color-1 font-medium hover:scale-105" onClick={() => navigate(-1)}>VOLVER!</button>
             </div>
+
+            {/* Rendering opcional del Modal de detalle que hace zoom a la imagen del producto */}
             {modalIsOpen &&
                 <Modal setModalIsOpen={setModalIsOpen}>
                     <img

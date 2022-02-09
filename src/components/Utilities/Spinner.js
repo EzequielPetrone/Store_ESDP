@@ -1,3 +1,4 @@
+// Componente que cree para reutilizar cada vez que se necesite
 
 const Spinner = ({leyenda}) => {
     return (

@@ -5,6 +5,8 @@ const CartWidget = () => {
 
     const { cartContador } = useCartContext()
 
+    // La lógica del ícono del carrito que va renderizando la qty de items agregados en forma dinámica.
+
     return (
         <button type="button"
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white p-1 rounded-full  focus:outline-none focus:ring-2 

@@ -1,3 +1,7 @@
+// En App.js armo el esqueleto permanente de la web, 
+// implemento el ruteo de React para la navegación 
+// y aplico los context creados
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from './components/Header/NavBar';
 import Home from './components/Home/Home';

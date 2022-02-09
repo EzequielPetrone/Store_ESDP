@@ -4,8 +4,13 @@ import { useLocalStorage } from '../assets/Hooks'
 const CartContext = createContext()
 export const useCartContext = () => useContext(CartContext)
 
+// Context creado para el manejo del Carrito a lo largo de toda la app.
+// Disponibiliza además del listado Cart en sí: qty total de items, Monto total, 
+// funciones para agregar items, eliminar items, buscar datos específicos, etc.
+
 export const CartContextProvider = ({ children }) => {
 
+    // Uso del LocalStorage para mantener el carrito aunque se refresque la página
     const [cart, setCart] = useLocalStorage('ESDP_CART_KEY', [])
     const [cartMonto, setCartMonto] = useState(0)
     const [cartContador, setContador] = useState(0)

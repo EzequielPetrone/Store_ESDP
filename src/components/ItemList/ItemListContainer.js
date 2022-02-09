@@ -12,6 +12,8 @@ const ItemListContainer = () => {
     const [productosF, setProductosF] = useState([])
     const [flagRender, setFlagRender] = useState(false)
 
+    // El siguiente useEffect se ejecuta cada vez que el hook useParams obtiene una nueva categoría de producto.
+    // Es la porción de código donde se obtiene el listado de productos requerido de la BD de Firebase.
     useEffect(() => {
         setFlagRender(false)
         const obtengoProductos = async () => {
@@ -30,6 +32,8 @@ const ItemListContainer = () => {
         obtengoProductos()
     }, [category])
 
+    // Esta función se ejecuta cada vez que hay un cambio en la barra de filtro. 
+    // Justamente lo que hace es obtener del listado padre aquellos productos que coinciden con la búsqueda.
     const filtraProductos = (e) => {
         if (e.target.value.length > 0) {
             setProductosF(productos.filter(p => p.descripcion.toLowerCase().includes(e.target.value.toLowerCase())))
@@ -39,6 +43,7 @@ const ItemListContainer = () => {
     }
 
     return (
+        // Doble Rendering opcional. Muestra Spinner hasta que responde Firebase. Luego muestra items o leyenda de error segpun corresponda.
         <section className="my-2 w-full sm:w-11/12 lg:w-10/12 2xl:w-9/12 flex justify-center">
             {!flagRender ?
                 <Spinner leyenda='Cargando productos' />

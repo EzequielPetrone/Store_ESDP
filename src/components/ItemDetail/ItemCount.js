@@ -1,6 +1,7 @@
 const ItemCount = ({ qty, setQty, qtyAdded, stock }) => {
 
     return (
+        //Control de stock. Los botones se habilitan/deshabilitan de manera que no sea posible cometer errores de cantidades.
         <div className="flex justify-around items-center my-2 mx-4">
             <button
                 className="disabled:bg-gray-300 disabled:hover:bg-gray-300 bg-color-1 hover:bg-color-3 text-white font-semibold w-9 h-9 rounded-lg"

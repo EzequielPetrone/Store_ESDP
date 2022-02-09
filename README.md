@@ -7,6 +7,7 @@ Developer: Ing. Ezequiel Petrone
 
 Algunas funcionalidades implementadas:
 
+- Sitio 100% Responsive (probar cualquier tamaño de pantalla que todo se adapta)
 - Catálogo de productos: vista general con descripción, foto y precio (en caso de falta de stock muestra leyenda acorde)
 - Selección por categorías: tomando las categorías de la base de datos se generan filtros de productos.
 - Barra de filtro manual para buscar productos según su descripción.
@@ -15,12 +16,13 @@ Algunas funcionalidades implementadas:
 - Selector de Divisa. La aplicación se conecta a una API que trae el precio del dólar en tiempo real y usando context permite en cualquier momento que el usuario elija la moneda que desee.
 - Uso de Modals customs a lo largo de toda la experiencia de compra.
 - Carrito y Formulario de Checkout: el carrito está hecho utilizando context, permite agregar y eliminar productos. El formulario de checkout valida datos antes de subir la orden.
+- Uso de React MEMO para optimizar cantidad de renderings de ciertos componentes puntuales.
 - Uso del Local Storage a través de un hook custom. De esa forma no se pierde el carrito del usuario al refrescar la página.
 
 
 ## Dependencias
 
-- TAILWIND para dar formato a la aplicación.
+- TAILWIND para dar formato a la aplicación e importar icons.
 - React Router Dom para la navegación.
 - FireBase para persistencia de datos.
 - Validator para validación de datos en el form.

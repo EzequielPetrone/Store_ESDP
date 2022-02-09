@@ -5,6 +5,9 @@ import { ExclamationIcon, CheckIcon } from '@heroicons/react/outline'
 import { useNavigate } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 
+// La base de este Modal la copié de un componente de Tailwind, y lo modifiqué para mostrar el mensaje final 
+// del proceso de compra luego de que la orden se grabe en la BD de Firebase.
+
 export default function FinalModal({ orderId, order }) {
 
     const aceptButtonRef = useRef(null)
